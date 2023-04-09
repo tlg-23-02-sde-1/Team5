@@ -20,6 +20,8 @@ mongoose.connect(process.env.DB_URL)
         app.use(bodyParser.urlencoded({ extended: true }))
         
         app.use(bodyParser.json())
+
+        app.use(express.static('public'))
         
         app.listen(PORT, ()=> {
             console.log("Port Connected");
@@ -31,7 +33,8 @@ mongoose.connect(process.env.DB_URL)
 
         app.get('/', async (req, res) => {
             try{
-                res.status(200).json({message: 'Should get this'})
+                res.send(path.join(__dirname),'index.html')
+                // res.status(200).json({message: 'Should get this'})
             }
             catch(error) {
                 res.send(500).json({message: error.message})

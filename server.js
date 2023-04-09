@@ -11,7 +11,7 @@ const userModel = require('./models/userModel')
 const orderModel = require('./models/orderModel')
 
 
-mongoose.connect(process.env.DB_URL)
+mongoose.connect('mongodb+srv://Plants-A-Plenty-DB-J:pibZrU3zLqS5thwB@plantsaplentydb.nysaty2.mongodb.net/?retryWrites=true&w=majority')
     .then( () => {
         console.log('Established connection with the DB')
 
@@ -33,11 +33,11 @@ mongoose.connect(process.env.DB_URL)
 
         app.get('/', async (req, res) => {
             try{
-                res.send(path.join(__dirname),'index.html')
+                res.sendFile(path.join(__dirname, 'index.html'))
                 // res.status(200).json({message: 'Should get this'})
             }
             catch(error) {
-                res.send(500).json({message: error.message})
+                res.status(500).json({message: error.message})
             }
         })
 
@@ -46,7 +46,7 @@ mongoose.connect(process.env.DB_URL)
                 res.status(200).json({message: 'Should still get this'})
             }
             catch(error) {
-                res.send(500).json({message: error.message})
+                res.status(500).json({message: error.message})
             }
         })
 
@@ -55,7 +55,7 @@ mongoose.connect(process.env.DB_URL)
                 res.status(200).json({message: 'Should still get this'})
             }
             catch(error) {
-                res.send(500).json({message: error.message})
+                res.status(500).json({message: error.message})
             }
         })
 
@@ -64,7 +64,7 @@ mongoose.connect(process.env.DB_URL)
                 res.status(200).json({message: 'Should still get this'})
             }
             catch(error) {
-                res.send(500).json({message: error.message})
+                res.status(500).json({message: error.message})
             }
         })
     })

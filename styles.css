@@ -1,5 +1,6 @@
 @charset "UTF-8";
 /* Body */
+
 body {
 	font-family: source-sans-pro;
 	background-color: #f2f2f2;
@@ -24,12 +25,13 @@ header {
 	height: 5%;
 	background-color: #52bad5;
 	border-bottom: 1px solid #2C9AB7;
+	z-index: 1;
 }
 .logo {
 	color: #fff;
 	font-weight: bold;
 	text-align: undefined;
-	width: 10%;
+	width: 20%;
 	float: left;
 	margin-top: 15px;
 	margin-left: 25px;
@@ -62,20 +64,39 @@ ul li a {
 ul li:hover a {
 	color: #2C9AB7;
 }
+
+/* Hero Section */
+.hero {
+	width: 100%;
+	height: 600px;
+  overflow: hidden;
+  position: relative;
+}
+.hero video {
+	min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.hero .title {
+	z-index: 1;
+	position: relative;
+	text-align: center;
+	color: #dc0000;
+	/* padding: 10px; */
+}
 .hero_header {
 	color: #FFFFFF;
 	text-align: center;
-	margin-top: 0px;
+	font-size: 2.5em;
+	margin-top: 262px;
 	margin-right: 0px;
 	margin-bottom: 0px;
 	margin-left: 0px;
 	letter-spacing: 4px;
-}
-/* Hero Section */
-.hero {
-	background-color: #B3B3B3;
-	padding-top: 150px;
-	padding-bottom: 150px;
+	mix-blend-mode: overlay;
 }
 .light {
 	font-weight: bold;
@@ -88,6 +109,7 @@ ul li:hover a {
 	font-weight: lighter;
 	text-transform: uppercase;
 	letter-spacing: 1px;
+	z-index:999;
 }
 /* About Section */
 .text_column {
@@ -114,37 +136,53 @@ ul li:hover a {
 	margin-bottom: 5px;
 }
 .gallery {
-	clear: both;
-	display: inline-block;
-	width: 100%;
-	background-color: #FFFFFF;
-	/* [disabled]min-width: 400px;
-*/
-	padding-bottom: 35px;
-	padding-top: 0px;
-	margin-top: -5px;
-	margin-bottom: 0px;
+	margin: 0 auto;
+	padding: 3rem 2rem;
 }
-.thumbnail {
+.gallery h2 {
+	font-size: 2.5rem;
+	font-family: 'Nunito Sans', sans-serif;
+	text-align: center;
+	margin-bottom: 3rem;
+	text-transform: uppercase;
+}
+.gallery .products-container {
+	overflow-x: scroll;
+	overflow-y: hidden;
+	white-space: nowrap;
+}
+.gallery .products-container .product-card {
+	display: inline-block;
+	border-radius: 15px;
+	margin-left: 15px;
+	margin-right: 15px;
+	width: 200px;
+	text-align: center;
+	padding: 3rem 2rem;
+	background: #fff;
+	box-shadow: 0.5rem 1rem rgba(0, 0, 0, .1);
+}
+/* .product-card {
 	width: 25%;
 	text-align: center;
 	float: left;
 	margin-top: 35px;
 }
-.gallery .thumbnail h4 {
+.gallery .product-card h3 {
+	font-family: 'Nunito Sans', sans-serif;
 	margin-top: 5px;
 	margin-right: 5px;
 	margin-bottom: 5px;
 	margin-left: 5px;
 	color: #52BAD5;
 }
-.gallery .thumbnail p {
+.gallery .product-card p {
 	margin-top: 0px;
 	margin-right: 0px;
 	margin-bottom: 0px;
 	margin-left: 0px;
 	color: #A3A3A3;
-}
+} */
 /* Parallax Section */
 .banner {
 	background-color: #2D9AB7;
@@ -300,7 +338,7 @@ nav ul li {
 	padding-bottom: 0px;
 	padding-left: 0px;
 }
-.thumbnail {
+.product-card {
 	width: 100%;
 }
 .footer_column {
@@ -392,7 +430,7 @@ nav ul li {
 	padding-bottom: 0px;
 	padding-left: 0px;
 }
-.thumbnail {
+.tproduct-card {
 	width: 100%;
 }
 .footer_column {
@@ -425,7 +463,7 @@ nav ul li {
 	width: 100%;
 	text-align: center;
 }
-.thumbnail {
+.product-card {
 	width: 50%;
 }
 .parallax {
@@ -460,7 +498,7 @@ nav ul li {
 .text_column {
 	width: 100%;
 }
-.thumbnail {
+.product-card {
 	width: 50%;
 }
 .text_column {

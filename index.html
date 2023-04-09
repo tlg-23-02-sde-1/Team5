@@ -10,6 +10,12 @@
       rel="stylesheet"
       type="text/css"
     />
+    <!--Font awesome CDN Link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!--google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700&display=swap" rel="stylesheet">
   </head>
   <body>
     <!-- Main Container -->
@@ -30,8 +36,13 @@
       </header>
       <!-- Hero Section -->
       <section class="hero" id="hero">
+        <video autoplay muted loop>
+          <source src="img/hero.mp4" type="video/mp4" />
+        </video>
+        <div class="title">
         <h2 class="hero_header">Plants <span class="light">A Plenty</span></h2>
-        <p class="tagline">Light is a simple one page website</p>
+        <p class="tagline"></p>
+      </div>
       </section>
       <!-- About Section -->
       <section class="about" id="about">
@@ -62,27 +73,55 @@
         </p>
       </section>
       <!-- Product slider Container--------------------------------------------- -->
-      <div class="gallery">
-        <div class="thumbnail">
-          <h1 class="stats">1500</h1>
-          <h4>TITLE</h4>
-          <p>One line description</p>
-        </div>
-        <div class="thumbnail">
-          <h1 class="stats">2300</h1>
-          <h4>TITLE</h4>
-          <p>One line description</p>
-        </div>
-        <div class="thumbnail">
-          <h1 class="stats">7500</h1>
-          <h4>TITLE</h4>
-          <p>One line description</p>
-        </div>
-        <div class="thumbnail">
-          <h1 class="stats">9870</h1>
-          <h4>TITLE</h4>
-          <p>One line description</p>
-        </div>
+      <div class="gallery"> 
+        <h2>Classic House Plants</h2>
+        <div class="products-container"> <!--container-->
+            <div class="product-card" data-name="p-1">
+              <img src="img/product1.jpg" alt="pothos">
+              <h3>Pothos</h3>
+              <div class="price">$35.00</div>
+            </div>
+            <div class="product-card" data-name="p-2">
+              <img src="img/product2.jpg" alt="birds of paradise">
+              <h3>Birds of Paradise</h3>
+              <div class="price">$125.00</div>
+            </div>
+            <div class="product-card" data-name="p-3">
+              <img src="img/product3.jpg" alt="snake plant">
+              <h3>Snake Plant</h3>
+              <div class="price">$25.00</div>
+            </div>
+            <div class="product-card" data-name="p-4">
+              <img src="img/product4.jpg" alt="fiddle fig">
+              <h3>Fiddle Fig</h3>
+              <div class="price">$72.00</div>
+            </div>
+            <div class="product-card" data-name="p-5">
+              <img src="img/product5.jpg" alt="string of pearls">
+              <h3>String of Pearls</h3>
+              <div class="price">$25.00</div>
+            </div>
+            <div class="product-card" data-name="p-6">
+              <img src="img/product6.jpg" alt="fiddle fig">
+              <h3>Ponytail Palm</h3>
+              <div class="price">$65.00</div>
+            </div>
+            <div class="product-card" data-name="p-7">
+              <img src="img/product7.jpg" alt="fiddle fig">
+              <h3>Aloe Vera</h3>
+              <div class="price">$10.00</div>
+            </div>
+            <div class="product-card" data-name="p-8">
+              <img src="img/product8.jpg" alt="fiddle fig">
+              <h3>ZZ Plant</h3>
+              <div class="price">$45.00</div>
+            </div>
+            <div class="product-card" data-name="p-9">
+              <img src="img/product9.jpg" alt="fiddle fig">
+              <h3>Cactus</h3>
+              <div class="price">$30.00</div>
+            </div>
+      </div>
       </div>
       <!-- Parallax Section -->
       <section class="banner">

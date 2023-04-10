@@ -5,21 +5,75 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>JavaScript Final</title>
-    <link
-      href="/styles.css"
-      rel="stylesheet"
-      type="text/css"
-    />
+    <link href="/styles.css" rel="stylesheet" type="text/css" />
     <!--Font awesome CDN Link-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <!--google font-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="script.js" defer></script>
   </head>
   <body>
     <!-- Main Container -->
-    <div class="wrapper">
+    <div class="wrapper"> 
+      <!-- Side-Cart -->
+      <div id="cart" class="sidecart">
+        <div class="cart-header">
+          <span id="remove">></span>
+          <h2>Cart</h2>
+          <span></span>
+        </div>
+        <div class="products">
+            <img src="/img/product1.jpg" alt="pothos">
+            <div class="details">
+                <h3>Pothos</h3>
+                <div class="quantity-and-button">
+                  <button class="btn btn-link px-2"
+                  onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                  <i class="fas fa-minus"></i>
+                  </button>
+                  <input type="number" value="1" min="1" name="quantity">
+                  <button class="btn btn-link px-2"
+                  onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                  <i class="fas fa-plus"></i>
+                  </button>
+                  <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                      <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
+                      <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
+                  </svg></button>
+                </div>
+            </div>
+        </div>
+        <div class="products">
+            <img src="/img/product2.jpg" alt="birds of paradise">
+            <div class="details">
+                <h3>Birds of Paradise</h3>
+                <div class="quantity-and-button">
+                  <button class="btn btn-link px-2"
+                  onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                  <i class="fas fa-minus"></i>
+                  </button>
+                  <input type="number" value="1" min="1" name="quantity">
+                  <button class="btn btn-link px-2"
+                  onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                  <i class="fas fa-plus"></i>
+                  </button>
+                  <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                      <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
+                      <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
+                  </svg></button>
+                </div>
+            </div>
+        </div>
+        <button id="checkout">Checkout</button>
+    </div>
       <!-- Navigation -->
       <header>
         <a href="">
@@ -30,7 +84,9 @@
             <li><a href="#hero">HOME</a></li>
             <li><a href="#about">HOUSEPLANT</a></li>
             <li><a href="#contact">CONTACT</a></li>
-            <li><a href="#ShoppingCart">CART</a></li>
+            <li id="cartbtn"><button id="cartbtn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
+              <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
+            </svg></button></li>
           </ul>
         </nav>
       </header>
@@ -40,93 +96,289 @@
           <source src="/img/hero.mp4" type="video/mp4" />
         </video>
         <div class="title">
-        <h2 class="hero_header">Plants <span class="light">A Plenty</span></h2>
-        <p class="tagline"></p>
-      </div>
+          <h2 class="hero_header">
+            Plants <span class="light">A Plenty</span>
+          </h2>
+          <p class="tagline"></p>
+        </div>
       </section>
       <!-- About Section -->
-      <section class="about" id="about">
-        <h2 class="hidden">About</h2>
-        <p class="text_column">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur.
-        </p>
-        <p class="text_column">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur.
-        </p>
-        <p class="text_column">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur.
-        </p>
-      </section>
+      <section class="about" id="about"></section>
       <!-- Product slider Container--------------------------------------------- -->
-      <div class="gallery"> 
-        <h2>Classic House Plants</h2>
-        <div class="products-container"> <!--container-->
-            <div class="product-card" data-name="p-1">
-              <img src="/img/product1.jpg" alt="pothos">
-              <h3>Pothos</h3>
-              <div class="price">$35.00</div>
-            </div>
-            <div class="product-card" data-name="p-2">
-              <img src="/img/product2.jpg" alt="birds of paradise">
-              <h3>Birds of Paradise</h3>
-              <div class="price">$125.00</div>
-            </div>
-            <div class="product-card" data-name="p-3">
-              <img src="/img/product3.jpg" alt="snake plant">
-              <h3>Snake Plant</h3>
-              <div class="price">$25.00</div>
-            </div>
-            <div class="product-card" data-name="p-4">
-              <img src="/img/product4.jpg" alt="fiddle fig">
-              <h3>Fiddle Fig</h3>
-              <div class="price">$72.00</div>
-            </div>
-            <div class="product-card" data-name="p-5">
-              <img src="/img/product5.jpg" alt="string of pearls">
-              <h3>String of Pearls</h3>
-              <div class="price">$25.00</div>
-            </div>
-            <div class="product-card" data-name="p-6">
-              <img src="/img/product6.jpg" alt="fiddle fig">
-              <h3>Ponytail Palm</h3>
-              <div class="price">$65.00</div>
-            </div>
-            <div class="product-card" data-name="p-7">
-              <img src="/img/product7.jpg" alt="fiddle fig">
-              <h3>Aloe Vera</h3>
-              <div class="price">$10.00</div>
-            </div>
-            <div class="product-card" data-name="p-8">
-              <img src="/img/product8.jpg" alt="fiddle fig">
-              <h3>ZZ Plant</h3>
-              <div class="price">$45.00</div>
-            </div>
-            <div class="product-card" data-name="p-9">
-              <img src="/img/product9.jpg" alt="fiddle fig">
-              <h3>Cactus</h3>
-              <div class="price">$30.00</div>
-            </div>
+      <div class="container">
+        <h3 class="title">Classic House Plants</h3>
+
+        <div class="products-container">
+          <div class="product" data-name="p-1">
+            <img src="img/product1.jpg" alt="pothos" />
+            <h3>Pothos</h3>
+            <div class="price">$35.00</div>
+          </div>
+
+          <div class="product" data-name="p-2">
+            <img src="img/product2.jpg" alt="birds of paradise" />
+            <h3>Birds of Paradise</h3>
+            <div class="price">$125.00</div>
+          </div>
+
+          <div class="product" data-name="p-3">
+            <img src="img/product3.jpg" alt="snake plant" />
+            <h3>Snake Plant</h3>
+            <div class="price">$25.00</div>
+          </div>
+
+          <div class="product" data-name="p-4">
+            <img src="img/product4.jpg" alt="fiddle fig" />
+            <h3>Fiddle Fig</h3>
+            <div class="price">$72.00</div>
+          </div>
+
+          <div class="product" data-name="p-5">
+            <img src="img/product5.jpg" alt="string of pearls" />
+            <h3>String of Pearls</h3>
+            <div class="price">$25.00</div>
+          </div>
+
+          <div class="product" data-name="p-6">
+            <img src="img/product6.jpg" alt="fiddle fig" />
+            <h3>Ponytail Palm</h3>
+            <div class="price">$65.00</div>
+          </div>
+
+          <div class="product" data-name="p-7">
+            <img src="img/product7.jpg" alt="fiddle fig" />
+            <h3>Aloe Vera</h3>
+            <div class="price">$10.00</div>
+          </div>
+
+          <div class="product" data-name="p-8">
+            <img src="img/product8.jpg" alt="fiddle fig" />
+            <h3>ZZ Plant</h3>
+            <div class="price">$45.00</div>
+          </div>
+
+          <div class="product" data-name="p-9">
+            <img src="img/product9.jpg" alt="fiddle fig" />
+            <h3>Cactus</h3>
+            <div class="price">$30.00</div>
+          </div>
+        </div>
       </div>
+      <!-- product container ends -->
+
+      <div class="products-preview">
+        <div class="preview" data-target="p-1">
+          <i class="fas fa-times"></i>
+          <img src="img/product1.jpg" alt="" />
+          <h3>Pothos</h3>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+            <span>( 250 )</span>
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Consequatur, dolorem.
+          </p>
+          <div class="price">$35.00</div>
+          <div class="buttons">
+            <a href="#" class="buy">buy now</a>
+            <a href="#" class="cart">add to cart</a>
+          </div>
+        </div>
+
+        <div class="preview" data-target="p-2">
+          <i class="fas fa-times"></i>
+          <img src="img/product2.jpg" alt="" />
+          <h3>Birds of Paradise</h3>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+            <span>( 250 )</span>
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Consequatur, dolorem.
+          </p>
+          <div class="price">$125.00</div>
+          <div class="buttons">
+            <a href="#" class="buy">buy now</a>
+            <a href="#" class="cart">add to cart</a>
+          </div>
+        </div>
+
+        <div class="preview" data-target="p-3">
+          <i class="fas fa-times"></i>
+          <img src="img/product3.jpg" alt="" />
+          <h3>Snake Plant</h3>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+            <span>( 250 )</span>
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Consequatur, dolorem.
+          </p>
+          <div class="price">$25.00</div>
+          <div class="buttons">
+            <a href="#" class="buy">buy now</a>
+            <a href="#" class="cart">add to cart</a>
+          </div>
+        </div>
+
+        <div class="preview" data-target="p-4">
+          <i class="fas fa-times"></i>
+          <img src="img/product4.jpg" alt="" />
+          <h3>Fiddle Fig</h3>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+            <span>( 250 )</span>
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Consequatur, dolorem.
+          </p>
+          <div class="price">$72.00</div>
+          <div class="buttons">
+            <a href="#" class="buy">buy now</a>
+            <a href="#" class="cart">add to cart</a>
+          </div>
+        </div>
+
+        <div class="preview" data-target="p-5">
+          <i class="fas fa-times"></i>
+          <img src="img/product5.jpg" alt="" />
+          <h3>String of Pearls</h3>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+            <span>( 250 )</span>
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Consequatur, dolorem.
+          </p>
+          <div class="price">$25.00</div>
+          <div class="buttons">
+            <a href="#" class="buy">buy now</a>
+            <a href="#" class="cart">add to cart</a>
+          </div>
+        </div>
+
+        <div class="preview" data-target="p-6">
+          <i class="fas fa-times"></i>
+          <img src="img/product6.jpg" alt="" />
+          <h3>Ponytail Palm</h3>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+            <span>( 250 )</span>
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Consequatur, dolorem.
+          </p>
+          <div class="price">$65.00</div>
+          <div class="buttons">
+            <a href="#" class="buy">buy now</a>
+            <a href="#" class="cart">add to cart</a>
+          </div>
+        </div>
+
+        <div class="preview" data-target="p-7">
+          <i class="fas fa-times"></i>
+          <img src="img/product7.jpg" alt="" />
+          <h3>Aloe Vera</h3>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+            <span>( 250 )</span>
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Consequatur, dolorem.
+          </p>
+          <div class="price">$10.00</div>
+          <div class="buttons">
+            <a href="#" class="buy">buy now</a>
+            <a href="#" class="cart">add to cart</a>
+          </div>
+        </div>
+
+        <div class="preview" data-target="p-8">
+          <i class="fas fa-times"></i>
+          <img src="img/product8.jpg" alt="" />
+          <h3>ZZ Plant</h3>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+            <span>( 250 )</span>
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Consequatur, dolorem.
+          </p>
+          <div class="price">$45.00</div>
+          <div class="buttons">
+            <a href="#" class="buy">buy now</a>
+            <a href="#" class="cart">add to cart</a>
+          </div>
+        </div>
+
+        <div class="preview" data-target="p-9">
+          <i class="fas fa-times"></i>
+          <img src="img/product9.jpg" alt="" />
+          <h3>Cactus</h3>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+            <span>( 250 )</span>
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Consequatur, dolorem.
+          </p>
+          <div class="price">$30.00</div>
+          <div class="buttons">
+            <a href="#" class="buy">buy now</a>
+            <a href="#" class="cart">add to cart</a>
+          </div>
+        </div>
       </div>
+
       <!-- Parallax Section -->
       <section class="banner">
         <h2 class="parallax">PARALLAX HERO</h2>
-        <img src="" alt="">
+        <img src="" alt="" />
         <p class="parallax_description">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -138,13 +390,7 @@
         <h2 id="monthly-sub">Subscription</h2>
         <article class="footer_column">
           <h3>BETTER</h3>
-          <img 
-            src=""
-            alt=""
-            width="400"
-            height="200"
-            class="cards"
-          />
+          <img src="" alt="" width="400" height="200" class="cards" />
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -155,13 +401,7 @@
         </article>
         <article class="footer_column">
           <h3>BEST</h3>
-          <img
-            src=""
-            alt=""
-            width="400"
-            height="200"
-            class="cards"
-          />
+          <img src="" alt="" width="400" height="200" class="cards" />
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim

@@ -40,3 +40,7 @@ previewBox.forEach(close =>{
     preveiwContainer.style.display = 'none';
   };
 });
+
+document.getElementById('checkout').addEventListener("click", () => {
+    console.log('Checkout')
+})

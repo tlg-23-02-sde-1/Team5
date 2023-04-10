@@ -304,8 +304,9 @@ section {
  }
  
  .container .products-container{
-	width: 100%;
+	width: 90%;
 	height: auto;
+	margin: 0 auto;
 	display: flex;
 	flex-wrap: nowrap;
 	overflow-x: auto;

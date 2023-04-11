@@ -11,7 +11,7 @@ remove.addEventListener('click', () => cart.classList.remove("active"))
 function stepUp(button) {
     const input = button.parentNode.querySelector('input[type=number]');
     input.stepUp();
-  }
+}
   
 function stepDown(button) {
     const input = button.parentNode.querySelector('input[type=number]');

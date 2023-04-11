@@ -2,8 +2,15 @@ const expressHandler = require("express-async-handler");
 const plantModel = require("../db/models/plantModel");
 const path = require("path");
 
+// TODO Have to update this to check if the user has any items in the cart. 
+// TODO If none render the index.html. If they have something in the cart render the index.ejs with all the items in the cart.
 const getPage = expressHandler(async (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "index.html"));
+  // if(req.oidc.isAuthenticated){
+  //   res.sendFile(path.join(__dirname, "..", "index.html"));
+  // }
+  // else {
+    res.render('index.ejs', {isAuthenticated: req.oidc.isAuthenticated()})
+  // }
 });
 
 const getAllPlants = expressHandler(async (req, res) => {

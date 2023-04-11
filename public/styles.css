@@ -288,13 +288,15 @@ section {
 	margin:0 auto;
 	background-color: rgba(251, 216, 158, 1);
 	padding-top: 10px;
+	padding-bottom: 50px;
+	/* clip-path: polygon(0% 0%, 100% 49%, 75% 100%, 0% 100%, 25% 50%, 0% 0%); */
 	/* position: relative;
 	left: 40px;
 	bottom: 50px; */
  }
  
  .container .title{
-	font-size: 3.5rem;
+	font-size: 3rem;
 	color:#444;
 	margin-bottom: 3rem;
 	margin-top: 3rem;
@@ -303,7 +305,7 @@ section {
  
  .container .products-container{
 	width: 90%;
-	height: auto;
+	height:auto;
 	margin: 0 auto;
 	display: flex;
 	flex-wrap: nowrap;
@@ -311,19 +313,17 @@ section {
 	overflow-y: hidden;
 	scroll-behavior: smooth;
 	-webkit-overflow-scrolling: touch;
-  
+	padding-bottom: 0;
  }
  
  .container .products-container .product{
-	margin-left: 15px;
-	margin-right: 15px;
-	margin-bottom: 25px;
-	text-align: center;
-	padding:3rem 2rem;
+	padding: 1rem 1.5rem; /* adjust the padding values */
+	margin-left: 20px;
+	margin-bottom: 20px;
 	background: #fff;
-	box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+	box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
 	outline: .1rem solid #ccc;
-	outline-offset: -1.5rem;
+	outline-offset: -.7rem;
 	cursor: pointer;
  }
  
@@ -333,7 +333,8 @@ section {
  }
  
  .container .products-container .product img{
-	height: 25rem;
+	height: 20rem;
+	width: 15rem;
  }
  
  .container .products-container .product:hover img{
@@ -354,6 +355,12 @@ section {
 	font-size: 2rem;
 	color:#444;
  }
+ /* #triangle-div{
+	width: 0;
+	height: 0;
+	border-top: 50px solid transparent;
+	border-bottom: 50px solid transparent;
+ } */
  
  .products-preview{
 	position: fixed;
@@ -368,12 +375,12 @@ section {
  
  .products-preview .preview{
 	display: none;
-	padding:2rem;
+	padding:1.5rem;
 	text-align: center;
 	background: #fff;
 	position: relative;
-	margin:2rem;
-	width: 40rem;
+	margin:1rem;
+	width: 50rem;
  }
  
  .products-preview .preview.active{
@@ -398,13 +405,15 @@ section {
  
  .products-preview .preview h3{
 	color:#444;
-	padding:.5rem 0;
+	padding: 0;
 	font-size: 2.5rem;
+	margin: 5px;
+	margin-top: 10px;
  }
  
  .products-preview .preview .stars{
-	padding:1rem 0;
-	font-size: 1.7rem;
+	padding:5px;
+	font-size: 1rem;
  }
  
  .products-preview .preview .stars i{
@@ -417,7 +426,7 @@ section {
  
  .products-preview .preview p{
 	line-height: 1.5;
-	padding:1rem 0;
+	/* padding:1rem 0; */
 	font-size: 1.6rem;
 	color:#777;
  }
@@ -459,7 +468,7 @@ section {
  
 /* Parallax Section */
 .banner {
-	background-color: #2D9AB7;
+	background-color: rgba(7, 96, 78, 1);
 	background-image: url(../images/parallax.png);
 	height: 400px;
 	background-attachment: fixed;
@@ -487,6 +496,7 @@ section {
 	margin-bottom: 0px;
 	margin-left: 0px;
 }
+
 /* More info */
 footer {
 	background-color: #FFFFFF;

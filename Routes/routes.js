@@ -6,12 +6,27 @@ const {
   updatePlant,
   deletePlant,
   getOnePlant,
+  getCart,
+  removeItemFromCart,
+  addItemToCart,
+  verifyUserInDb,
+  incrementItemOnCart,
+  decrementItemOnCart,
 } = require("../Controller/controller");
 
 // using Router instead of express()
 const Router = express.Router();
 
-Router.route("/").get(getPage).post(postPlants);
+Router.route("/").get(verifyUserInDb, getPage).post(postPlants);
+
+Router.route("/cart/:id")
+  .get(getCart)
+  .delete(removeItemFromCart)
+  .post(addItemToCart);
+
+Router.route("/cart/:id/increment").put(incrementItemOnCart);
+
+Router.route("/cart/:id/decrement").patch(decrementItemOnCart);
 
 Router.route("/plants").get(getAllPlants);
 

@@ -76,11 +76,9 @@
     </div>
       <!-- Navigation -->
       <header>
-        <a href="">
-          <h4 class="logo">Plants A Plenty</h4>
-        </a>
         <nav>
-          <ul>
+          <div class="logo"><a href="#">Plants A Plenty</a></div>
+          <ul class="links">
             <li><a href="#hero">HOME</a></li>
             <li><a href="#about">HOUSEPLANT</a></li>
             <li><a href="#contact">CONTACT</a></li>
@@ -89,8 +87,13 @@
             </svg></button></li>
             <li><a href="/login/">LOGIN/SIGNUP</a></li>
           </ul>
+          <!-- <a href="#" class="action_btn">Login/Signup</a> -->
+          <div class="toggle_btn">
+            <i class="fa-solid fa-bars"></i>
+          </div>
         </nav>
       </header>
+     
       <!-- Hero Section -->
       <section class="hero" id="hero">
         <video autoplay muted loop>
@@ -104,7 +107,15 @@
         </div>
       </section>
       <!-- About Section -->
-      <section class="about" id="about"></section>
+      <section class="about" id="about">
+        <div class="maintenance-video">
+          <video src=""></video>
+        </div>
+        <div class="maintenance-info">
+          <h3>Self Watering</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam perferendis ea quisquam dolor sed eos adipisci, possimus et dolorum sapiente. Doloremque, omnis nobis? Fugit odit veniam porro reprehenderit maxime? Saepe.</p>
+        </div>
+      </section>
       <!-- Product slider Container--------------------------------------------- -->
       <div class="container" id="triangle-div">
         <h3 class="title">Shop Potted Classics</h3>
@@ -383,6 +394,7 @@
         <article class="footer_column">
           <h3>BETTER</h3>
           <img src="./img/better.jpg" alt="" width="400" height="400" />
+          <div class="button-sub">subscribe</div>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -390,10 +402,12 @@
             aliquip ex ea commodo consequat. Duis aute irure dolor in
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
           </p>
+          
         </article>
         <article class="footer_column">
           <h3>BEST</h3>
           <img src="" alt="" width="400" height="400" />
+          <div class="button-sub">subscribe</div>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -401,6 +415,7 @@
             aliquip ex ea commodo consequat. Duis aute irure dolor in
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
           </p>
+          <div class="button">subscribe</div>
         </article>
       </footer>
       <!-- Footer Section -->

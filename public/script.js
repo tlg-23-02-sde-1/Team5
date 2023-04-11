@@ -18,6 +18,7 @@ function stepDown(button) {
     input.stepDown();
 }
 
+//Landing page product modals
 let preveiwContainer = document.querySelector('.products-preview');
 let previewBox = preveiwContainer.querySelectorAll('.preview');
 

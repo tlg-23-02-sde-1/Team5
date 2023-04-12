@@ -1,6 +1,20 @@
-let cart = document.getElementById("cart");
-let add = document.getElementById("cartbtn");
-let remove = document.getElementById("remove");
+
+//------------Nav Bar Background------------
+
+const navbar = document.querySelector('nav');
+
+window.onscroll = function() {
+  if (window.pageYOffset > 0) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+};
+//------------------------------------------
+
+let cart = document.getElementById('cart')
+let add = document.getElementById('cartbtn')
+let remove = document.getElementById('remove')
 
 let cartButtons = document.querySelectorAll(".cart");
 
@@ -29,7 +43,6 @@ async function addToCart(plantID) {
     console.error(error.message);
   }
 }
-
 // For the trash-can button have to link it
 async function removeFromCart(plantID) {
   try {

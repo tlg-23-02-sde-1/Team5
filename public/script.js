@@ -1,98 +1,102 @@
-let cart = document.getElementById('cart')
-let add = document.getElementById('cartbtn')
-let remove = document.getElementById('remove')
+let cart = document.getElementById("cart");
+let add = document.getElementById("cartbtn");
+let remove = document.getElementById("remove");
 
-let cartButtons = document.querySelectorAll('.cart')
+let cartButtons = document.querySelectorAll(".cart");
 
-async function addToCart(plantID){
-  try{
+async function addToCart(plantID) {
+  try {
     const response = await fetch(`/cart/${plantID}`, {
-      method: 'POST',
-      headers: {"Content-Type": "application/json"}
-    })
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+    });
 
-    if(response.ok) {
-      console.log('Plant added to cart')
+    if (response.ok) {
+      console.log("Plant added to cart");
+      closebox();
+    } else {
+      console.error("Failed to add product to cart");
     }
-    else {
-      console.error('Failed to add product to cart')
-    }
-  }
-  catch(error){
-    console.error(error.message)
+  } catch (error) {
+    console.error(error.message);
   }
 }
 
 // For the trash-can button have to link it
-async function removeFromCart(plantID){
-  try{
+async function removeFromCart(plantID) {
+  try {
     const response = await fetch(`/cart/${plantID}`, {
-      method: 'DELETE',
-      headers: {"Content-Type": "application/json"}
-    })
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+    });
 
-    if(response.ok) {
-      console.log('Plant removed from cart')
+    if (response.ok) {
+      console.log("Plant removed from cart");
+    } else {
+      console.error("Failed to remove product to cart");
     }
-    else {
-      console.error('Failed to remove product to cart')
-    }
-  }
-  catch(error){
-    console.error(error.message)
+  } catch (error) {
+    console.error(error.message);
   }
 }
-
-
 
 cartButtons.forEach((button) => {
-  button.addEventListener('click', e => {
-    e.preventDefault()
-    let plantId = button.getAttribute('data-id')
-    addToCart(plantId)
-  })
-})
+  button.addEventListener("click", (e) => {
+    e.preventDefault();
+    let plantId = button.getAttribute("data-id");
+    addToCart(plantId);
+  });
+});
 
 // To open the cart on click
-add.addEventListener('click', () => cart.classList.add("active"))
+add.addEventListener("click", () => cart.classList.add("active"));
 
 // To close the cart on click
-remove.addEventListener('click', () => cart.classList.remove("active"))
+remove.addEventListener("click", () => cart.classList.remove("active"));
 
 function stepUp(button) {
-    const input = button.parentNode.querySelector('input[type=number]');
-    input.stepUp();
+  const input = button.parentNode.querySelector("input[type=number]");
+  input.stepUp();
 }
-  
+
 function stepDown(button) {
-    const input = button.parentNode.querySelector('input[type=number]');
-    input.stepDown();
+  const input = button.parentNode.querySelector("input[type=number]");
+  input.stepDown();
 }
 
 //Landing page product modals
-let preveiwContainer = document.querySelector('.products-preview');
-let previewBox = preveiwContainer.querySelectorAll('.preview');
+let previewContainer = document.querySelector(".products-preview");
+let previewBox = previewContainer.querySelectorAll(".preview");
 
-document.querySelectorAll('.products-container .product').forEach(product =>{
-  product.onclick = () =>{
-    preveiwContainer.style.display = 'flex';
-    let name = product.getAttribute('data-name');
-    previewBox.forEach(preview =>{
-      let target = preview.getAttribute('data-target');
-      if(name == target){
-        preview.classList.add('active');
+document.querySelectorAll(".products-container .product").forEach((product) => {
+  product.onclick = () => {
+    previewContainer.style.display = "flex";
+    let name = product.getAttribute("data-name");
+    previewBox.forEach((preview) => {
+      let target = preview.getAttribute("data-target");
+      if (name == target) {
+        preview.classList.add("active");
       }
     });
   };
 });
 
-previewBox.forEach(close =>{
-  close.querySelector('.fa-times').onclick = () =>{
-    close.classList.remove('active');
-    preveiwContainer.style.display = 'none';
+function closebox() {
+  previewBox.forEach((close) => {
+    if (close.classList.contains("active")) {
+      close.classList.remove("active");
+      previewContainer.style.display = "none";
+    }
+  });
+}
+
+previewBox.forEach((close) => {
+  close.querySelector(".fa-times").onclick = () => {
+    close.classList.remove("active");
+    previewContainer.style.display = "none";
   };
 });
 
-document.getElementById('checkout').addEventListener("click", () => {
-    console.log('Checkout')
-})
+document.getElementById("checkout").addEventListener("click", () => {
+  console.log("Checkout");
+});

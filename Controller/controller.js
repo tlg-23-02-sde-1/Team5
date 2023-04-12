@@ -22,16 +22,16 @@ const verifyUserInDb = expressHandler(async (req,res,next) => {
 // TODO If none render the index.html. If they have something in the cart render the index.ejs with all the items in the cart.
 const getPage = expressHandler(async (req,res) => {
   if(req.oidc.isAuthenticated()) {
-    const user = await userModel.findOne({_id: req.oidc.user.sub}).populate("cart")
+    const user = await userModel.findOne({_id: req.oidc.user.sub}).populate("cart.plant")
     if(user && user.cart.length > 0) {
       res.render('index.ejs', {isAuthenticated: req.oidc.isAuthenticated(), cart: user.cart})
     }
     else{
-      res.render('index.ejs', {isAuthenticated: req.oidc.isAuthenticated()})
+      res.render('index.ejs', {isAuthenticated: req.oidc.isAuthenticated(), cart: [] })
     }
   }
   else{
-    res.render('index.ejs', {isAuthenticated: req.oidc.isAuthenticated()})
+    res.render('index.ejs', {isAuthenticated: req.oidc.isAuthenticated(), cart: [] })
   }
 })
 
@@ -111,7 +111,7 @@ const getCart = expressHandler(async (req,res) => {
   if(!user){
     res.status(404).json({message : "User not found"})
   }
-  res.status(200).json(user)
+  res.status(200).json(user.cart)
 });
 
 // This is for the Add to Cart button

@@ -19,10 +19,9 @@ const Router = express.Router();
 
 Router.route("/").get(verifyUserInDb, getPage).post(postPlants);
 
-Router.route("/cart/:id")
-  .get(getCart)
-  .delete(removeItemFromCart)
-  .post(addItemToCart);
+Router.route("/cart").get(getCart);
+
+Router.route("/cart/:id").delete(removeItemFromCart).post(addItemToCart);
 
 Router.route("/cart/:id/increment").put(incrementItemOnCart);
 

@@ -39,49 +39,41 @@
           <h2>Cart</h2>
           <span></span>
         </div>
-        <div class="products">
-            <img src="/img/product1.jpg" alt="pothos">
-            <div class="details">
-                <h3>Pothos</h3>
+        <% if (cart && cart.length > 0) { %>
+          <% cart.forEach(item => { %>
+            <div class="products">
+              <img src="<%= item.plant.image %>" alt="<%= item.plant.name %>" />
+              <div class="details">
+                <h2><%= item.plant.name %></h2>
+                <h4>Price: $<%= item.plant.price %></h4>
                 <div class="quantity-and-button">
-                  <button class="btn btn-link px-2"
-                  onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                  <button class="btn btn-link px-2" data-id="<%= item.plant._id %>" onclick="stepDown(this)">
                   <i class="fas fa-minus"></i>
                   </button>
-                  <input type="number" value="1" min="1" name="quantity">
-                  <button class="btn btn-link px-2"
-                  onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                  <h4>Qty:</h4>
+                  <input type="number" value="<%= item.quantity %>" min="1" name="quantity" readonly>
+                  <button class="btn btn-link px-2" data-id="<%= item.plant._id %>" onclick="stepUp(this)">
                   <i class="fas fa-plus"></i>
                   </button>
-                  <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                      <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
-                      <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
-                  </svg></button>
-                </div>
-            </div>
-        </div>
-        <div class="products">
-            <img src="/img/product2.jpg" alt="birds of paradise">
-            <div class="details">
-                <h3>Birds of Paradise</h3>
-                <div class="quantity-and-button">
-                  <button class="btn btn-link px-2"
-                  onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                  <i class="fas fa-minus"></i>
+                  <button onclick="removeFromCart('<%= item.plant._id %>')">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
+                  <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
+                  </svg>
                   </button>
-                  <input type="number" value="1" min="1" name="quantity">
-                  <button class="btn btn-link px-2"
-                  onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                  <i class="fas fa-plus"></i>
-                  </button>
-                  <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                      <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
-                      <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
-                  </svg></button>
                 </div>
+                <h4>Total: $<%= item.plant.price * item.quantity%></h4>
+              </div>
             </div>
-        </div>
-        <button id="checkout">Checkout</button>
+          <% }) %>
+          <% let subtotal = cart.reduce((total, item) => total + (item.plant.price * item.quantity), 0).toFixed(2); %>
+          <div class="subtotal">
+            <h2>Cart Subtotal: $<%= subtotal %></h2>
+          </div>
+          <button id="checkout">Checkout</button>
+        <% } else { %>
+          <h2>Your cart is empty</h2>
+        <% } %>
     </div>
       <!-- Navigation -->
       <header>

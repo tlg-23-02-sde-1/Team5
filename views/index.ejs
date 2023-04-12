@@ -12,21 +12,30 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <!--google font-->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700&family=Sansita+Swashed&display=swap" rel="stylesheet">
+
     <script src="script.js" defer></script>
   </head>
   <body>
+    <section class="hero" id="hero">
+      <video id="hero-video" autoplay muted loop>
+        <source src="/img/hero.mp4" type="video/mp4" />
+      </video>
+      <div class="title">
+        <h2 class="hero_header">
+          Plants <span class="light">A Plenty</span>
+        </h2>
+        <p class="tagline">Bringing life and greenery to your space.</p>
+      </div>
+    </section>
     <!-- Main Container -->
     <div class="wrapper"> 
       <!-- Side-Cart -->
       <div id="cart" class="sidecart">
         <div class="cart-header">
-          <span id="remove">></span>
+          <i class="fas fa-times" id="remove"></i>
           <h2>Cart</h2>
           <span></span>
         </div>
@@ -76,13 +85,13 @@
     </div>
       <!-- Navigation -->
       <header>
-        <a href="">
-          <h4 class="logo">Plants A Plenty</h4>
-        </a>
         <nav>
+          <div class="logo">
+            <a href="#">Plants A Plenty</a>
+          </div>
           <ul>
             <li><a href="#hero">HOME</a></li>
-            <li><a href="#about">HOUSEPLANT</a></li>
+            <li><a href="#about">MAINTENANCE</a></li>
             <li><a href="#contact">CONTACT</a></li>
             <li id="cartbtn"><button id="cartbtn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
               <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
@@ -96,19 +105,17 @@
         </nav>
       </header>
       <!-- Hero Section -->
-      <section class="hero" id="hero">
-        <video autoplay muted loop>
-          <source src="/img/hero.mp4" type="video/mp4" />
+      
+      <!-- About Section -->
+      <section class="about" id="about">
+        <video id="maintenance-video" autoplay muted loop>
+          <source src="/public/img/mainAbout.mp4" type="video/mp4" />
         </video>
-        <div class="title">
-          <h2 class="hero_header">
-            Plants <span class="light">A Plenty</span>
-          </h2>
-          <p class="tagline"></p>
+        <div class="maintenance-info">
+          <h3>Plant Care</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam perferendis ea quisquam dolor sed eos adipisci, possimus et dolorum sapiente. Doloremque, omnis nobis? Fugit odit veniam porro reprehenderit maxime? Saepe.</p>
         </div>
       </section>
-      <!-- About Section -->
-      <section class="about" id="about"></section>
       <!-- Product slider Container--------------------------------------------- -->
       <div class="container" id="triangle-div">
         <h3 class="title">Shop Potted Classics</h3>

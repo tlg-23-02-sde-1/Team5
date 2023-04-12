@@ -2,6 +2,57 @@ let cart = document.getElementById('cart')
 let add = document.getElementById('cartbtn')
 let remove = document.getElementById('remove')
 
+let cartButtons = document.querySelectorAll('.cart')
+
+async function addToCart(plantID){
+  try{
+    const response = await fetch(`/cart/${plantID}`, {
+      method: 'POST',
+      headers: {"Content-Type": "application/json"}
+    })
+
+    if(response.ok) {
+      console.log('Plant added to cart')
+    }
+    else {
+      console.error('Failed to add product to cart')
+    }
+  }
+  catch(error){
+    console.error(error.message)
+  }
+}
+
+// For the trash-can button have to link it
+async function removeFromCart(plantID){
+  try{
+    const response = await fetch(`/cart/${plantID}`, {
+      method: 'DELETE',
+      headers: {"Content-Type": "application/json"}
+    })
+
+    if(response.ok) {
+      console.log('Plant removed from cart')
+    }
+    else {
+      console.error('Failed to remove product to cart')
+    }
+  }
+  catch(error){
+    console.error(error.message)
+  }
+}
+
+
+
+cartButtons.forEach((button) => {
+  button.addEventListener('click', e => {
+    e.preventDefault()
+    let plantId = button.getAttribute('data-id')
+    addToCart(plantId)
+  })
+})
+
 // To open the cart on click
 add.addEventListener('click', () => cart.classList.add("active"))
 

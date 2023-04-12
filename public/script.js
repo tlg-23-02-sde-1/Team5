@@ -40,7 +40,6 @@ async function addToCart(plantID) {
     console.error(error.message);
   }
 }
-
 // For the trash-can button have to link it
 async function removeFromCart(plantID) {
   try {

@@ -25,9 +25,9 @@
       </video>
       <div class="title">
         <h2 class="hero_header">
-          Plants <span class="light">A Plenty</span>
+          "Bringing the outdoors in, one plant at a time."
         </h2>
-        <p class="tagline">Bringing life and greenery to your space.</p>
+        <p class="tagline"></p>
       </div>
     </section>
     <!-- Main Container -->
@@ -87,20 +87,21 @@
       <header>
         <nav>
           <div class="logo">
-            <a href="#">Plants A Plenty</a>
+            <a href="#" style="text-align: none;"><h2>Plants A Plenty</h2></a>
           </div>
           <ul>
             <li><a href="#hero">HOME</a></li>
             <li><a href="#about">MAINTENANCE</a></li>
             <li><a href="#contact">CONTACT</a></li>
-            <li id="cartbtn"><button id="cartbtn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
+            
+            <% if(!isAuthenticated) { %>
+            <li><a href="/login/" id="logsign">LOGIN/SIGNUP</a></li>
+            <% } else { %>
+            <li><a href="/logout/" id="logsign">LOGOUT</a></li>
+            <% } %>
+            <li id="cartbtn"><button id="cartbtn"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
               <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
             </svg></button></li>
-            <% if(!isAuthenticated) { %>
-            <li><a href="/login/">LOGIN/SIGNUP</a></li>
-            <% } else { %>
-            <li><a href="/logout/">LOGOUT</a></li>
-            <% } %>
           </ul>
         </nav>
       </header>
@@ -112,8 +113,17 @@
           <source src="/public/img/mainAbout.mp4" type="video/mp4" />
         </video>
         <div class="maintenance-info">
-          <h3>Plant Care</h3>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam perferendis ea quisquam dolor sed eos adipisci, possimus et dolorum sapiente. Doloremque, omnis nobis? Fugit odit veniam porro reprehenderit maxime? Saepe.</p>
+          <h3 style="text-align: center;">Plant Care</h3>
+          <p style="line-height: 35px; font-size: 20px;">Water your plant regularly, but avoid overwatering. Make sure the soil is moist but not waterlogged.<br>
+            Ensure that your plant is receiving the right amount of sunlight. Some plants need direct sunlight, while others prefer indirect light.<br>
+            Check your plant for pests and diseases regularly. If you notice any issues, take action immediately to prevent the problem from spreading.<br>
+            Prune your plant regularly to keep it healthy and promote new growth. Remove any dead or damaged leaves or stems.<br>
+            Fertilize your plant every few months to provide it with the nutrients it needs to thrive.<br>
+            Choose the right type of potting soil for your plant, and repot it when necessary.<br>
+            Keep your plant away from drafts, as this can cause stress and damage.<br>
+            Monitor the humidity levels in your home, and consider using a humidifier if your plant requires high humidity.<br>
+            Rotate your plant periodically to ensure even growth and exposure to light.
+            </p>
         </div>
       </section>
       <!-- Product slider Container--------------------------------------------- -->

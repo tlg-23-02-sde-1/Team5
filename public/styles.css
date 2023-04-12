@@ -86,6 +86,11 @@ body {
   background-color: #fff;
   margin: 0;
 }
+p {
+  font-family: "Crimson Text", serif;
+  line-height: 35px;
+  font-size: 30px;
+}
 
 /* Container */
 
@@ -283,13 +288,13 @@ header {
 }
 
 header nav ul {
-    padding-top: 20px;
+  padding-top: 20px;
 }
 
 nav {
   width: 100%;
   border-bottom: 1px solid rgba(251, 216, 158, 1);
-  padding-top:20px;
+  padding-top: 20px;
   height: 80px;
   margin: 0 auto;
   display: flex;
@@ -298,11 +303,14 @@ nav {
   position: fixed;
   padding: 27px;
   left: 0;
-  background-color: linear-gradient(to bottom,  #000, #0003 70%,#0000);
-  transition: background-color .5s;
+  background-color: linear-gradient(to bottom, #000, #0003 70%, #0000);
+  transition: background-color 0.5s;
 }
 nav.scrolled {
-    background-color: #0a0a0a;
+  background-color: #0a0a0a;
+}
+nav:hover {
+  background-color: #000;
 }
 
 nav .logo a {
@@ -310,7 +318,6 @@ nav .logo a {
   font-family: "Sansita Swashed", cursive;
   font-weight: 500;
   color: wheat;
-
 }
 
 header nav ul {
@@ -351,49 +358,31 @@ ul li:hover a {
 
 .hero #hero {
   position: relative;
-
   width: 100%;
-
   height: 100%;
-
   margin-bottom: 50px;
   margin-top: 0;
-
-  background-color: pink;
-
   overflow: hidden;
 }
 
 .hero .title .hero_header {
   position: absolute;
-
   display: block;
-
   padding: 100px;
-
   border-radius: 50%;
-
   top: 60%;
-
   font-family: "Sansita Swashed", cursive;
-
   left: 60%;
-
   color: #fff;
-
   background-color: rgba(245, 222, 179, 0.579);
-
   text-align: center;
-
   font-size: 2em;
-
-  /* font-weight: bold; 
-
-  text-shadow: 3px 3px rgba(0, 0, 0, 0.5); */
 }
 
 .hero #hero-video {
   object-fit: fill;
+  width: 100vw;
+  height: 100vh;
 }
 
 .tagline {
@@ -416,133 +405,144 @@ ul li:hover a {
 
 .text_column {
   width: 29%;
-
   text-align: justify;
-
   font-weight: lighter;
-
   line-height: 25px;
-
   float: left;
-
   padding-left: 20px;
-
   padding-right: 20px;
-
   color: #a3a3a3;
 }
 
 .about {
   width: 100%;
-
-  height: 800px;
-
+  min-height: auto;
   padding-left: 25px;
-
   padding-right: 25px;
-
-  border: 1px red solid;
-
   display: flex;
-
   align-items: center;
-
   justify-content: space-between;
-
-  margin-top: 100px;
+  margin-top: 250px;
+  margin-bottom: 100px;
+  flex-wrap: wrap;
+  flex-grow: 1;
 }
 
 .about .maintenance-info {
   width: 50%;
-
-  padding: 125px;
+  padding: 50px;
+  min-height: 0;
+  flex-grow: 1;
 }
 
 .about #maintenance-video {
   width: 50%;
-
-  border: 1px red solid;
+  max-height: 600px;
+  background-color: wheat;
+  padding: 55px;
+  border-radius: 20px;
+  margin: 0;
+}
+.feature {
+  width: 100%;
+  min-height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  flex-grow: 1;
 }
 
+.feature .featured-plant {
+  flex-basis: 50%;
+  background-color: wheat;
+  padding: 55px;
+  border-radius: 50%;
+  margin: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: auto;
+}
+
+.feature .featured-plant img {
+  border-radius: 50%;
+  flex-grow: 0;
+  margin: 0;
+  width: 100%; /* set width to 100% */
+  height: auto; /* set height to 100% */
+}
+
+.feature .spec-note {
+  flex-basis: 50%;
+  min-height: 0;
+  flex-grow: 0;
+}
+.feature-title {
+  font-size: 3.8rem;
+  font-family: "Sansita Swashed", cursive;
+  position: relative;
+  top: 380px;
+}
+.about-title {
+  text-align: center;
+  font-size: 3.8rem;
+  font-family: "Sansita Swashed", cursive;
+}
+.product-title {
+  text-align: center;
+  font-size: 3.8rem;
+  font-family: "Sansita Swashed", cursive;
+  margin-bottom: 50px;
+  color: rgb(245, 222, 179);
+}
+#plantcare {
+  font-size: 30px;
+  line-height: 35px;
+  font-family: "Crimson Text", serif;
+}
 .container {
   max-width: 100%;
-
   margin: 0 auto;
 
   padding-top: 10px;
-
   padding-bottom: 50px;
-
-  /* clip-path: polygon(0% 0%, 100% 49%, 75% 100%, 0% 100%, 25% 50%, 0% 0%); */
-
-  /* position: relative; 
-
-    left: 40px; 
-
-    bottom: 50px; */
-}
-
-.container .title {
-  font-size: 3rem;
-
-  color: #444;
-
-  margin-bottom: 3rem;
-
-  margin-top: 3rem;
-
-  text-align: center;
+  background-color: rgba(7, 96, 78, 1);
+  border-radius: 12px;
 }
 
 .container .products-container {
   width: 90%;
-
   height: auto;
-
   margin: 0 auto;
-
   display: flex;
-
   flex-wrap: nowrap;
-
   overflow-x: auto;
-
   overflow-y: hidden;
-
   scroll-behavior: smooth;
-
   -webkit-overflow-scrolling: touch;
-
   padding-bottom: 0;
 }
 .container .products-container .product {
-  padding: 1rem 1.5rem;
-  /* adjust the padding values */
-
-  margin-left: 20px;
-
+  padding: 1.7rem 1.9rem;
+  margin-left: 30px;
   margin-bottom: 20px;
-
   background: #fff;
-
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-
   outline: 0.1rem solid #ccc;
-
   outline-offset: -0.7rem;
-
   cursor: pointer;
 }
 
 .container .products-container .product:hover {
   outline: 0.2rem solid #222;
-
   outline-offset: 0;
 }
 
 .container .products-container .product img {
   height: 20rem;
-
   width: 15rem;
 }
 
@@ -552,11 +552,8 @@ ul li:hover a {
 
 .container .products-container .product h3 {
   padding: 0.5rem 0;
-
   font-size: 2rem;
-
   color: #444;
-
   text-align: center;
 }
 
@@ -571,41 +568,20 @@ ul li:hover a {
 
   text-align: center;
 }
-
-/* #triangle-div{ 
-
-    width: 0; 
-
-    height: 0; 
-
-    border-top: 50px solid transparent; 
-
-    border-bottom: 50px solid transparent; 
-
- } */
-
 .products-preview {
   position: fixed;
-
   top: 0;
   left: 0;
-
   min-height: 100vh;
-
   width: 100%;
-
   background: rgba(0, 0, 0, 0.8);
-
   display: none;
-
   align-items: center;
-
   justify-content: center;
 }
 
 .products-preview .preview {
   display: none;
-
   padding: 1.5rem;
 
   text-align: center;
@@ -629,14 +605,10 @@ ul li:hover a {
 
 .products-preview .preview .fa-times {
   position: absolute;
-
   top: 1rem;
   right: 1.5rem;
-
   cursor: pointer;
-
   color: #444;
-
   font-size: 4rem;
 }
 
@@ -646,19 +618,14 @@ ul li:hover a {
 
 .products-preview .preview h3 {
   color: #444;
-
   padding: 0;
-
   font-size: 2.5rem;
-
   margin: 5px;
-
   margin-top: 10px;
 }
 
 .products-preview .preview .stars {
   padding: 5px;
-
   font-size: 1rem;
 }
 
@@ -672,47 +639,34 @@ ul li:hover a {
 
 .products-preview .preview p {
   line-height: 1.5;
-
   /* padding:1rem 0; */
-
   font-size: 1.6rem;
-
   color: #777;
 }
 
 .products-preview .preview .price {
   padding: 1rem 0;
-
   font-size: 2.5rem;
-
   color: #27ae60;
 }
 
 .products-preview .preview .buttons {
   display: flex;
-
   gap: 1.5rem;
-
   flex-wrap: wrap;
-
   margin-top: 1rem;
 }
 
 .products-preview .preview .buttons a {
   flex: 1 1 16rem;
-
   padding: 1rem;
-
   font-size: 1.8rem;
-
   color: #444;
-
   border: 0.1rem solid #444;
 }
 
 .products-preview .preview .buttons a.cart {
   background: #444;
-
   color: #fff;
 }
 
@@ -722,7 +676,6 @@ ul li:hover a {
 
 .products-preview .preview .buttons a.buy:hover {
   background: #444;
-
   color: #fff;
 }
 
@@ -730,41 +683,27 @@ ul li:hover a {
 
 .banner {
   background-color: rgba(7, 96, 78, 1);
-
   background-image: url(../images/parallax.png);
-
   height: 400px;
-
   background-attachment: fixed;
-
   background-size: cover;
-
   background-repeat: no-repeat;
 }
 
 .parallax {
   color: #ffffff;
-
   text-align: right;
-
   padding-right: 100px;
-
   padding-top: 110px;
-
   letter-spacing: 2px;
-
   margin-top: 0px;
 }
 
 .parallax_description {
   color: #ffffff;
-
   text-align: right;
-
   padding-right: 100px;
-
   width: 30%;
-
   float: right;
 
   font-weight: lighter;
@@ -979,6 +918,14 @@ footer {
 /* Mobile */
 
 @media (max-width: 320px) {
+  .about {
+    flex-direction: column;
+    height: auto;
+  }
+  .about .maintenance-info {
+    width: 100%;
+    padding: 25px;
+  }
   .logo {
     width: 100%;
 

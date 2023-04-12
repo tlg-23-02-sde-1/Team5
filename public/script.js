@@ -16,11 +16,6 @@ let cart = document.getElementById('cart')
 let add = document.getElementById('cartbtn')
 let remove = document.getElementById('remove')
 
-let cart = document.getElementById("cart");
-let add = document.getElementById("cartbtn");
-let remove = document.getElementById("remove");
-
-
 let cartButtons = document.querySelectorAll(".cart");
 
 async function addToCart(plantID) {

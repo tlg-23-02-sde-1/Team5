@@ -1,6 +1,25 @@
+
+//------------Nav Bar Background------------
+
+const navbar = document.querySelector('nav');
+
+window.onscroll = function() {
+  if (window.pageYOffset > 0) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+};
+//------------------------------------------
+
+let cart = document.getElementById('cart')
+let add = document.getElementById('cartbtn')
+let remove = document.getElementById('remove')
+
 let cart = document.getElementById("cart");
 let add = document.getElementById("cartbtn");
 let remove = document.getElementById("remove");
+
 
 let cartButtons = document.querySelectorAll(".cart");
 

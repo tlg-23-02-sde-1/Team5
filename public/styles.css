@@ -113,20 +113,13 @@ body {
   top: 0px;
   right: -700px;
   width: 25%;
-  height: 100vh;
   background: #fff;
   text-align: center;
-
   box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
-
   transition: right 0.5s;
-
   z-index: 2;
-
   display: flex;
-
   flex-direction: column;
-
   justify-content: space-between;
 }
 
@@ -136,71 +129,50 @@ body {
 
 .cart-header {
   display: flex;
-
   align-items: center;
-
   justify-content: space-between;
-
   background-color: #52bad5;
-
   color: #fff;
-
   padding: 20px;
 }
 
 #remove {
   margin-right: 10px;
-
   color: #fff;
-
   font-size: 36px;
-
   cursor: pointer;
 }
 
 .cart-header h2 {
   font-size: 28px;
-
   margin: 0;
 }
 
 .products img {
   width: 35%;
-
   margin: 0 10px;
-
   object-fit: cover;
 }
 
 .products {
   display: flex;
-
   justify-content: center;
-
   padding: 0px 20px;
 }
 
 .quantity-and-button {
   display: flex;
-
   flex-direction: row;
-
   justify-content: space-around;
-
   align-items: center;
-
   width: 100%;
 }
 
 .details {
   width: 50%;
-
   padding: 20px;
-
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
 }
 
@@ -210,29 +182,19 @@ body {
 
 .details input {
   width: 40px;
-
   height: 30px;
-
   border: none;
-
   font-size: 22px;
-
   border-bottom: 1px solid #555;
-
   outline: none;
-
   margin: 20px 0;
-
   text-align: center;
 }
 
 .details button {
   margin: 10px 5px;
-
   border: none;
-
   outline: none;
-
   cursor: pointer;
 }
 
@@ -242,15 +204,10 @@ body {
 
 #checkout {
   height: 65px;
-
   font-size: 22px;
-
   border: none;
-
   background: #222;
-
   color: #fff;
-
   cursor: pointer;
 }
 

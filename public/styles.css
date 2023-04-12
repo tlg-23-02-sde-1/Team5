@@ -26,7 +26,6 @@
     outline: none; border:none;
     text-decoration: none;
     transition: all .2s linear;
-    text-transform: capitalize;
  }
 
 html {
@@ -37,7 +36,7 @@ html {
 /* Body */
 
 body {
-    height: 80vh;
+    height: 100vh;
     background-color: #fff;
 }
 /* Container */
@@ -49,9 +48,9 @@ body {
 }
 /* Side Cart */
 #cartbtn{
-    width: 40px;
-    text-align: center;
-    background-color: white;
+	text-align: center;
+    color: wheat;
+	background-color: transparent;
 }
 
 #cartbtn button{
@@ -163,9 +162,25 @@ body {
     cursor: pointer;
 }
 
+/*Login button*/
+#logsign {
+	background-color: rgb(240, 215, 176);
+  color: black;
+  padding: 1em 1.5em;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 12px;
+  margin-left: 200px;
+  margin-right: 15px;}
+#logsign:hover {
+	background-color: rgb(135, 161, 93);
+  }
+
 /* Navigation */
 header {
     position: absolute;
+	border-bottom: 1px solid rgba(251, 216, 158, 1);
+	margin-top: 20px;
     top: 0;
     right: 0;
     padding: 0 2rem;
@@ -175,20 +190,22 @@ header {
 nav {
     width: 100%;
     height: 60px;
-    max-width: 1200px;
     margin: 0 auto;
+	padding-left: 100px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 nav .logo a {
     font-size: 1.5rem;
+	font-family: 'Sansita Swashed', cursive;;
     font-weight: 500;
-    text-decoration: none;
+    color: white;
 }
 header nav ul {
     list-style: none;
-    float: right;
+	margin-right: 100px;
+    
 }
 nav ul li {
     float: left;
@@ -201,8 +218,9 @@ nav ul li {
     transition: all 0.3s linear;
 }
 ul li a {
-    color: #000;
+    color:wheat;
     text-decoration: none;
+	
 }
 ul li:hover a {
     color: #2C9AB7;
@@ -217,23 +235,23 @@ ul li:hover a {
     background-color: pink;
     overflow: hidden;
 }
-.hero .title {
+.hero .title .hero_header {
     position: absolute;
-  top: 0;
+	display: block;
+	padding: 100px;
+	border-radius: 50%;
+  top: 60%;
   font-family: 'Sansita Swashed', cursive;
-  left: 0;
+  left: 60%;
   color: #FFF;
+  background-color: rgba(245, 222, 179, 0.579);
   text-align: center;
-  width: 100%;
   font-size: 2em;
-  padding: 270px 0;
   /* font-weight: bold;
   text-shadow: 3px 3px rgba(0, 0, 0, 0.5); */
 }
 .hero #hero-video {
 object-fit: fill;
-width: 100%;
-height:auto;
 }
 .tagline {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

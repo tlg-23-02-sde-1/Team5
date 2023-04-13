@@ -85,11 +85,14 @@
         
         <nav>
           <div class="logo">
-            <a href="#" style="text-align: none;"><h2>Plants A Plenty</h2></a>
+            <a href="#" style="text-align: none;"><h2 id="logonav">Plants A Plenty</h2></a>
           </div>
           <ul>
             <li><a href="#hero">HOME</a></li>
-            <li><a href="#about">MAINTENANCE</a></li>
+            <li><a href="#trending">SHOP</a></li>
+            <li><a href="#maintenance">CARE</a></li>
+            <li><a href="#review">TESTIMONIAL</a></li>
+            <li><a href="#monthly-sub">SUBSCRIPTION</a></li>
             <li><a href="#contact">CONTACT</a></li>
             
             <% if(!isAuthenticated) { %>
@@ -105,7 +108,7 @@
       </header>
       <!-- Featured Section -->
       <h2 class="feature-title">Plant of the Month</h2>
-      <section class="feature">
+      <section class="feature" id="featured">
         <div class="spec-note">
           <p>There are many advantages to owning a cactus plant. For starters, they are incredibly easy to care for, making them a great option for those who may not have a lot of time or experience with gardening. Cacti also come in a wide variety of shapes and sizes, making them a fun and unique addition to any home decor. Additionally, cacti are known for their air-purifying qualities, meaning they can help to improve the overall air quality in your home. Finally, cacti are incredibly resilient and can survive in a variety of different conditions, making them a great option for those who may not live in an ideal climate for plant growth.</p>
         </div>
@@ -116,7 +119,7 @@
       
 
       <!-- Product slider Container--------------------------------------------- -->
-      <div class="container">
+      <div class="container" id="trending">
         <h2 class="product-title">Trending Plants</h2>
 
         <div class="products-container">
@@ -380,7 +383,7 @@
 
       <!-- About Section -->
       
-      <section class="about" id="about">
+      <section class="about" id="maintenance">
         
         <video id="maintenance-video" autoplay muted loop>
           <source src="/img/plantcare1.mp4" type="video/mp4" />
@@ -405,7 +408,7 @@
             <div class="underline"></div>
           </div> -->
           <!--review-->
-          <article class="review">
+          <article class="review" id="review">
             <div class="img-container-rev">
               <img src="./person-1.jpeg" id="person-img" alt="">
             </div>
@@ -425,43 +428,65 @@
           </button>
         </div> -->
       </section>
-      <!-- More Info Section -->
-      <footer>
-        <h2 id="monthly-sub">Subscription</h2>
-        <article class="footer_column">
-          <h3>BETTER</h3>
-          <img src="./img/better.jpg" alt="" width="400" height="400" />
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          </p>
+      <!-- Subscription Section -->
+     <div class="subscription">
+        <h2 id="monthly-sub-title">The Gift That Keeps On Giving</h2>
+        <article class="sub_column1">
+          <img src="./img/better.jpg" alt="" />
+          <div class="button-sub">Subscription</div>
         </article>
-        <article class="footer_column">
-          <h3>BEST</h3>
-          <img src="" alt="" width="400" height="400" />
+        <article class="sub_column2">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          </p>
+            Welcome to our monthly plant subscription service! Each month, you'll receive a carefully curated selection of plants straight to your door, chosen for their beauty and ease of care. From lush ferns to colorful succulents, our expert team will handpick a variety of plants that will thrive in your home or office.</p>
+
+            <p>With your subscription, you'll also receive detailed care instructions and tips to ensure your plants stay healthy and vibrant. Plus, as a subscriber, you'll enjoy exclusive access to new and rare plant varieties, as well as discounts on other plant-related products in our shop.</p>
+
+            <p>Whether you're a seasoned plant enthusiast or just starting out on your green journey, our subscription service is the perfect way to bring more life and joy into your space. So why wait? Sign up today and start enjoying the benefits of having beautiful, healthy plants in your home every month!</p>
         </article>
-      </footer>
-      <!-- Footer Section -->
-      <section class="footer_banner" id="contact">
-        <h2 class="hidden">Footer Banner Section</h2>
-        <p class="hero_header">FOR THE LATEST NEWS &amp; UPDATES</p>
-        <div class="button">subscribe</div>
-      </section>
-      <!-- Copyrights Section -->
-      <!-- <div class="copyright">©2023</div> -->
+      </div>
     </div>
-    <!-- Main Container Ends -->
-    <script src="/script.js"></script>
+      </div>
+    </div>
+  </div>
+      <!-- Main Container Ends -->
+
+      <!-- Footer Section -->
+    <footer>
+    <section class="footer_banner" id="contact">
+      <div class="contact-form">
+        <form id="fcf-form-id" class="fcf-form-class" method="post" action="contact-form-process.php">
+        
+          <div class="fcf-form-group">
+              <label for="Name" class="fcf-label"></label>
+              <div class="fcf-input-group">
+                  <input type="text" id="Name" name="Name" class="fcf-form-control" required="" placeholder="name">
+              </div>
+          </div>
+          <div class="fcf-form-group">
+              <label for="Email" class="fcf-label"></label>
+              <div class="fcf-input-group">
+                  <input type="email" id="Email" name="Email" class="fcf-form-control" required="" placeholder="email">
+              </div>
+          </div>
+          <div class="fcf-form-group">
+              <label for="Message" class="fcf-label"></label>
+              <div class="fcf-input-group">
+                  <textarea id="Message" name="Message" class="fcf-form-control" rows="6" maxlength="3000" required="" placeholder="How may we help you?"></textarea>
+              </div>
+          </div>
+          <div class="fcf-form-group">
+              <button type="submit" id="fcf-button" class="fcf-btn fcf-btn-primary fcf-btn-lg fcf-btn-block">Send Message</button>
+          </div>
+      </form>
+      </div>
+      <h2 class="hidden">Footer Banner Section</h2>
+      <p class="hero_header">FOR THE LATEST NEWS &amp; UPDATES</p>
+      <div class="button">subscribe</div>
+      <div class="copyright">©2023</div>
+    </section>
+  </footer>
+    <!-- Copyrights Section -->
+    
     <script src="/review.js"></script>
   </body>
 </html>

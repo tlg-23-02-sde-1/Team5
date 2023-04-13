@@ -153,7 +153,7 @@ const removeItemFromCart = expressHandler(async (req,res) => {
     res.status(500).json({message: `Plant not found with id ${req.params.id}`})
   }
 
-  user.cart = user.cart.filter((itemId) => itemId.toString() !== req.params.id)
+  user.cart = user.cart.filter((item) => item.plant.toString() !== req.params.id)
   await user.save()
 
   res.status(200).json({message: "Item removed from cart of", user})

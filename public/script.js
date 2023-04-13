@@ -17,6 +17,7 @@ let remove = document.getElementById("remove");
 
 let cartButtons = document.querySelectorAll(".cart");
 let buyNowButton = document.querySelectorAll(".buy");
+let removeButton = document.querySelector('.remove-item');
 
 
 
@@ -72,6 +73,20 @@ cartButtons.forEach((button) => {
     let plantId = button.getAttribute("data-id");
     addToCart(plantId);
   });
+});
+
+// removeButtons.forEach((button) => {
+//   button.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     let plantId = button.getAttribute("data-id");
+//     removeFromCart(plantId);
+//   });
+// });
+
+removeButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  let plantId = removeButton.getAttribute("data-id");
+  removeFromCart(plantId);
 });
 
 async function buyNow(plantID) {

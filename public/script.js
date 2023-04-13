@@ -18,6 +18,8 @@ let remove = document.getElementById("remove");
 let cartButtons = document.querySelectorAll(".cart");
 let buyNowButton = document.querySelectorAll(".buy");
 
+
+
 // Sends a post request for the item to be added to the user's cart
 // Once you get a good response fetch the cart and grab the items and update the SideCart with the item.
 async function addToCart(plantID) {

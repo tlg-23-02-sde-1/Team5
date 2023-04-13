@@ -218,6 +218,9 @@ const checkout = expressHandler(async(req,res) => {
       payment_method_types: ['card'],
       mode: 'payment',
       line_items,
+      automatic_tax: {
+        enabled: true,
+      },    
       shipping_address_collection: {
         allowed_countries: ['US']
       },
@@ -245,11 +248,15 @@ const checkout = expressHandler(async(req,res) => {
           },
         },
       ],
-      success_url:`${process.env.BASEURL}/success`,
-      cancel_url:`${process.env.BASEURL}/cancel`
+      success_url: `${process.env.BASEURL}/order/success`,
+      cancel_url:`${process.env.BASEURL}/`
     })
 
     res.status(200).json({url: session.url})
+})
+
+const successOrder = expressHandler(async(req,res) => {
+  res.send(`<html><body><h1>Congratulations! Your order has been successfully processed and payment has been received. Thank you for choosing Plants A Plenty</h1></body></html>`);
 })
 
 //TODO Implement API Endpoints for orders (get (read), post (create), update (put))
@@ -268,4 +275,5 @@ module.exports = {
   decrementItemOnCart,
   incrementItemOnCart,
   checkout,
+  successOrder,
 };

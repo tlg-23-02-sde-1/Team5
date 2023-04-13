@@ -28,6 +28,7 @@ const getPage = expressHandler(async (req,res) => {
       res.render('index.ejs', {isAuthenticated: req.oidc.isAuthenticated(), cart: user.cart})
     }
     else{
+      // res.render('index.ejs', {isAuthenticated: req.oidc.isAuthenticated(), cart: user.cart })
       res.render('index.ejs', {isAuthenticated: req.oidc.isAuthenticated(), cart: [] })
     }
   }

@@ -83,11 +83,13 @@ cartButtons.forEach((button) => {
 //   });
 // });
 
-removeButton.addEventListener("click", (e) => {
-  e.preventDefault();
-  let plantId = removeButton.getAttribute("data-id");
-  removeFromCart(plantId);
-});
+if (removeButton) {
+  removeButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    let plantId = removeButton.getAttribute("data-id");
+    removeFromCart(plantId);
+  });
+}
 
 async function buyNow(plantID) {
   try {

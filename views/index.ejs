@@ -12,10 +12,12 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <!--google font-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Crimson+Text&family=Nunito+Sans:wght@200;300;400;600;700&family=Sansita+Swashed&display=swap" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Text&family=Nunito+Sans:wght@200;300;400;600;700&family=Sansita+Swashed&display=swap"
+      rel="stylesheet"
+    />
 
     <script src="script.js" defer></script>
   </head>
@@ -32,7 +34,7 @@
       </div>
     </section>
     <!-- Main Container -->
-    <div class="wrapper"> 
+    <div class="wrapper">
       <!-- Side-Cart -->
       <div id="cart" class="sidecart">
         <div class="cart-header">
@@ -41,51 +43,79 @@
           <span></span>
         </div>
         <div class="cart-content">
-        <% if (cart && cart.length > 0) { %>
-          <% cart.forEach(item => { %>
-            <div class="products">
-              <img src="<%= item.plant.image %>" alt="<%= item.plant.name %>" />
-              <div class="details">
-                <h2><%= item.plant.name %></h2>
-                <h4>Price: $<%= item.plant.price %></h4>
-                <div class="quantity-and-button">
-                  <button class="btn btn-link px-2" data-id="<%= item.plant._id %>" onclick="stepDown(this)">
+          <% if (cart && cart.length > 0) { %> <% cart.forEach(item => { %>
+          <div class="products">
+            <img src="<%= item.plant.image %>" alt="<%= item.plant.name %>" />
+            <div class="details">
+              <h2><%= item.plant.name %></h2>
+              <h4>Price: $<%= item.plant.price %></h4>
+              <div class="quantity-and-button">
+                <button
+                  class="btn btn-link px-2"
+                  data-id="<%= item.plant._id %>"
+                  onclick="stepDown(this)"
+                >
                   <i class="fas fa-minus"></i>
-                  </button>
-                  <h4>Qty:</h4>
-                  <input type="number" value="<%= item.quantity %>" min="1" name="quantity" readonly>
-                  <button class="btn btn-link px-2" data-id="<%= item.plant._id %>" onclick="stepUp(this)">
+                </button>
+                <h4>Qty:</h4>
+                <input
+                  type="number"
+                  value="<%= item.quantity %>"
+                  min="1"
+                  name="quantity"
+                  readonly
+                />
+                <button
+                  class="btn btn-link px-2"
+                  data-id="<%= item.plant._id %>"
+                  onclick="stepUp(this)"
+                >
                   <i class="fas fa-plus"></i>
-                  </button>
-                  <button class="remove-item" onclick="removeFromCart('<%= item.plant._id %>')">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
-                  <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
+                </button>
+                <button
+                  class="remove-item"
+                  onclick="removeFromCart('<%= item.plant._id %>')"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-trash"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"
+                    />
+                    <path
+                      d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"
+                    />
                   </svg>
-                  </button>
-                </div>
-                <h4>Total: $<%= item.plant.price * item.quantity%></h4>
+                </button>
               </div>
+              <h4>Total: $<%= item.plant.price * item.quantity%></h4>
             </div>
-            
-          <% }) %>
-          <% let subtotal = cart.reduce((total, item) => total + (item.plant.price * item.quantity), 0).toFixed(2); %>
-        </div>
-          <div class="subtotal">
-            <h2>Cart Subtotal: $<%= subtotal %></h2>
           </div>
-          <button id="checkout">Checkout</button>
-        <% } else { %>
-          <h2>Your cart is empty</h2>
-        <% } %>
+
+          <% }) %> <% let subtotal = cart.reduce((total, item) => total +
+          (item.plant.price * item.quantity), 0).toFixed(2); %>
         </div>
-    </div>
+        <div class="subtotal">
+          <h2>Cart Subtotal: $<%= subtotal %></h2>
+        </div>
+        <button id="checkout">Checkout</button>
+        <% } else { %>
+        <h2>Your cart is empty</h2>
+        <% } %>
+      </div>
+
       <!-- Navigation -->
       <header>
-        
         <nav>
           <div class="logo">
-            <a href="#" style="text-align: none;"><h2 id="logonav">Plants A Plenty</h2></a>
+            <a href="#" style="text-align: none"
+              ><h2 id="logonav">Plants A Plenty</h2></a
+            >
           </div>
           <ul>
             <li><a href="#hero">HOME</a></li>
@@ -94,29 +124,55 @@
             <li><a href="#review">TESTIMONIAL</a></li>
             <li><a href="#monthly-sub">SUBSCRIPTION</a></li>
             <li><a href="#contact">CONTACT</a></li>
-            
+
             <% if(!isAuthenticated) { %>
             <li><a href="/login/" id="logsign">LOGIN/SIGNUP</a></li>
             <% } else { %>
             <li><a href="/logout/" id="logsign">LOGOUT</a></li>
             <% } %>
-            <li id="cartbtn"><button id="cartbtn"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
-              <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
-            </svg></button></li>
+            <li id="cartbtn">
+              <button id="cartbtn">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="26"
+                  height="26"
+                  fill="currentColor"
+                  class="bi bi-cart2"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                  />
+                </svg>
+              </button>
+            </li>
           </ul>
         </nav>
       </header>
       <!-- Featured Section -->
-      <h2 class="feature-title">Plant of the Month</h2>
+      <!-- <h2 class="feature-title">Plant of the Month</h2> -->
       <section class="feature" id="featured">
+        
         <div class="spec-note">
-          <p>There are many advantages to owning a cactus plant. For starters, they are incredibly easy to care for, making them a great option for those who may not have a lot of time or experience with gardening. Cacti also come in a wide variety of shapes and sizes, making them a fun and unique addition to any home decor. Additionally, cacti are known for their air-purifying qualities, meaning they can help to improve the overall air quality in your home. Finally, cacti are incredibly resilient and can survive in a variety of different conditions, making them a great option for those who may not live in an ideal climate for plant growth.</p>
+          
+          <p>
+            <span style="font-size: 60px; font-family: 'Sansita Swashed', cursive;">Plant of the Month</span><br><br>
+            There are many advantages to owning a cactus plant. For starters,
+            they are incredibly easy to care for, making them a great option for
+            those who may not have a lot of time or experience with gardening.
+            Cacti also come in a wide variety of shapes and sizes, making them a
+            fun and unique addition to any home decor. Additionally, cacti are
+            known for their air-purifying qualities, meaning they can help to
+            improve the overall air quality in your home. Finally, cacti are
+            incredibly resilient and can survive in a variety of different
+            conditions, making them a great option for those who may not live in
+            an ideal climate for plant growth.
+          </p>
         </div>
         <div class="featured-plant">
-          <img src="img/featured.jpg" alt="cactus" width="400px">
-      </div>
+          <img src="img/featured.jpg" alt="cactus" width="400px" />
+        </div>
       </section>
-      
 
       <!-- Product slider Container--------------------------------------------- -->
       <div class="container" id="trending">
@@ -194,12 +250,22 @@
             <span>( 250 )</span>
           </div>
           <p>
-            The Pothos, also known as Devil's Ivy, is a popular and easy-to-grow houseplant that adds a touch of greenery to any space. Its heart-shaped leaves come in various shades of green, and some varieties feature marbled white or yellow patterns. Pothos plants are known for their fast-growing, trailing vines, making them perfect for hanging baskets, shelves, or as an eye-catching centerpiece.
+            The Pothos, also known as Devil's Ivy, is a popular and easy-to-grow
+            houseplant that adds a touch of greenery to any space. Its
+            heart-shaped leaves come in various shades of green, and some
+            varieties feature marbled white or yellow patterns. Pothos plants
+            are known for their fast-growing, trailing vines, making them
+            perfect for hanging baskets, shelves, or as an eye-catching
+            centerpiece.
           </p>
           <div class="price">$35.00</div>
           <div class="buttons">
-            <a href="#" class="buy" data-id="6434a01dc2eecc970b411da2">buy now</a>
-            <a href="#" class="cart" data-id="6434a01dc2eecc970b411da2">add to cart</a>
+            <a href="#" class="buy" data-id="6434a01dc2eecc970b411da2"
+              >buy now</a
+            >
+            <a href="#" class="cart" data-id="6434a01dc2eecc970b411da2"
+              >add to cart</a
+            >
           </div>
         </div>
 
@@ -216,12 +282,20 @@
             <span>( 250 )</span>
           </div>
           <p>
-            The Birds of Paradise, also known as Strelitzia reginae, is a stunning and exotic houseplant known for its striking, crane-like flowers and large, paddle-shaped leaves. With its vibrant orange and blue blooms resembling the plumage of a tropical bird, this plant brings a touch of the tropics to any indoor space.
+            The Birds of Paradise, also known as Strelitzia reginae, is a
+            stunning and exotic houseplant known for its striking, crane-like
+            flowers and large, paddle-shaped leaves. With its vibrant orange and
+            blue blooms resembling the plumage of a tropical bird, this plant
+            brings a touch of the tropics to any indoor space.
           </p>
           <div class="price">$125.00</div>
           <div class="buttons">
-            <a href="#" class="buy" data-id="6434819a8e54ab61de024a9f">buy now</a>
-            <a href="#" class="cart" data-id="6434819a8e54ab61de024a9f">add to cart</a>
+            <a href="#" class="buy" data-id="6434819a8e54ab61de024a9f"
+              >buy now</a
+            >
+            <a href="#" class="cart" data-id="6434819a8e54ab61de024a9f"
+              >add to cart</a
+            >
           </div>
         </div>
 
@@ -238,12 +312,21 @@
             <span>( 250 )</span>
           </div>
           <p>
-            Snake Plant, also known as Sansevieria or Mother-in-Law's Tongue, is a popular and low-maintenance houseplant that boasts striking, sword-like leaves with beautiful patterns. Its architectural shape and vibrant green foliage add a touch of modern elegance to any space, making it a favorite among interior designers and plant enthusiasts alike.
+            Snake Plant, also known as Sansevieria or Mother-in-Law's Tongue, is
+            a popular and low-maintenance houseplant that boasts striking,
+            sword-like leaves with beautiful patterns. Its architectural shape
+            and vibrant green foliage add a touch of modern elegance to any
+            space, making it a favorite among interior designers and plant
+            enthusiasts alike.
           </p>
           <div class="price">$25.00</div>
           <div class="buttons">
-            <a href="#" class="buy" data-id="643486df8e54ab61de024aa1">buy now</a>
-            <a href="#" class="cart" data-id="643486df8e54ab61de024aa1">add to cart</a>
+            <a href="#" class="buy" data-id="643486df8e54ab61de024aa1"
+              >buy now</a
+            >
+            <a href="#" class="cart" data-id="643486df8e54ab61de024aa1"
+              >add to cart</a
+            >
           </div>
         </div>
 
@@ -260,12 +343,21 @@
             <span>( 250 )</span>
           </div>
           <p>
-            The Fiddle Fig, also known as Fiddle Leaf Fig or Ficus Lyrata, is a stunning and highly sought-after houseplant, loved for its large, violin-shaped leaves that add a touch of lush greenery to any space. With its impressive size and bold foliage, the Fiddle Fig has become a statement piece in modern interiors, making it a must-have for plant enthusiasts and design-conscious individuals alike.
+            The Fiddle Fig, also known as Fiddle Leaf Fig or Ficus Lyrata, is a
+            stunning and highly sought-after houseplant, loved for its large,
+            violin-shaped leaves that add a touch of lush greenery to any space.
+            With its impressive size and bold foliage, the Fiddle Fig has become
+            a statement piece in modern interiors, making it a must-have for
+            plant enthusiasts and design-conscious individuals alike.
           </p>
           <div class="price">$72.00</div>
           <div class="buttons">
-            <a href="#" class="buy" data-id="643487c78e54ab61de024aa3">buy now</a>
-            <a href="#" class="cart" data-id="643487c78e54ab61de024aa3">add to cart</a>
+            <a href="#" class="buy" data-id="643487c78e54ab61de024aa3"
+              >buy now</a
+            >
+            <a href="#" class="cart" data-id="643487c78e54ab61de024aa3"
+              >add to cart</a
+            >
           </div>
         </div>
 
@@ -282,12 +374,20 @@
             <span>( 250 )</span>
           </div>
           <p>
-            The String of Pearls, also known as Senecio rowleyanus, is a delightful and unique succulent that adds a touch of whimsy and elegance to any indoor space. This eye-catching plant is characterized by its slender, trailing stems adorned with small, round leaves resembling a string of charming green pearls.
+            The String of Pearls, also known as Senecio rowleyanus, is a
+            delightful and unique succulent that adds a touch of whimsy and
+            elegance to any indoor space. This eye-catching plant is
+            characterized by its slender, trailing stems adorned with small,
+            round leaves resembling a string of charming green pearls.
           </p>
           <div class="price">$25.00</div>
           <div class="buttons">
-            <a href="#" class="buy" data-id="64348ef367f75fe1b60177c2">buy now</a>
-            <a href="#" class="cart" data-id="64348ef367f75fe1b60177c2">add to cart</a>
+            <a href="#" class="buy" data-id="64348ef367f75fe1b60177c2"
+              >buy now</a
+            >
+            <a href="#" class="cart" data-id="64348ef367f75fe1b60177c2"
+              >add to cart</a
+            >
           </div>
         </div>
 
@@ -304,12 +404,20 @@
             <span>( 250 )</span>
           </div>
           <p>
-            The Ponytail Palm, scientifically known as Beaucarnea recurvata, is an eye-catching and low-maintenance plant that brings an exotic touch to any indoor space. With its distinctive swollen base, slender trunk, and long, cascading leaves resembling a ponytail, this plant is both intriguing and stylish.
+            The Ponytail Palm, scientifically known as Beaucarnea recurvata, is
+            an eye-catching and low-maintenance plant that brings an exotic
+            touch to any indoor space. With its distinctive swollen base,
+            slender trunk, and long, cascading leaves resembling a ponytail,
+            this plant is both intriguing and stylish.
           </p>
           <div class="price">$65.00</div>
           <div class="buttons">
-            <a href="#" class="buy" data-id="6434919067f75fe1b60177c5">buy now</a>
-            <a href="#" class="cart" data-id="6434919067f75fe1b60177c5">add to cart</a>
+            <a href="#" class="buy" data-id="6434919067f75fe1b60177c5"
+              >buy now</a
+            >
+            <a href="#" class="cart" data-id="6434919067f75fe1b60177c5"
+              >add to cart</a
+            >
           </div>
         </div>
 
@@ -326,12 +434,20 @@
             <span>( 250 )</span>
           </div>
           <p>
-            Aloe Vera, known scientifically as Aloe barbadensis miller, is a perennial succulent plant valued not only for its attractive appearance but also for its numerous health benefits. With a rich history spanning thousands of years, Aloe Vera has long been revered for its soothing, healing, and medicinal properties.
+            Aloe Vera, known scientifically as Aloe barbadensis miller, is a
+            perennial succulent plant valued not only for its attractive
+            appearance but also for its numerous health benefits. With a rich
+            history spanning thousands of years, Aloe Vera has long been revered
+            for its soothing, healing, and medicinal properties.
           </p>
           <div class="price">$10.00</div>
           <div class="buttons">
-            <a href="#" class="buy" data-id="643491f967f75fe1b60177c8">buy now</a>
-            <a href="#" class="cart" data-id="643491f967f75fe1b60177c8">add to cart</a>
+            <a href="#" class="buy" data-id="643491f967f75fe1b60177c8"
+              >buy now</a
+            >
+            <a href="#" class="cart" data-id="643491f967f75fe1b60177c8"
+              >add to cart</a
+            >
           </div>
         </div>
 
@@ -348,12 +464,20 @@
             <span>( 250 )</span>
           </div>
           <p>
-            The ZZ Plant, scientifically known as Zamioculcas zamiifolia, is a popular houseplant renowned for its stunning, glossy foliage and remarkable resilience. With its lush, green leaves and low-maintenance care requirements, the ZZ Plant is an ideal choice for both seasoned plant enthusiasts and beginners alike.
+            The ZZ Plant, scientifically known as Zamioculcas zamiifolia, is a
+            popular houseplant renowned for its stunning, glossy foliage and
+            remarkable resilience. With its lush, green leaves and
+            low-maintenance care requirements, the ZZ Plant is an ideal choice
+            for both seasoned plant enthusiasts and beginners alike.
           </p>
           <div class="price">$45.00</div>
           <div class="buttons">
-            <a href="#" class="buy" data-id="6434927367f75fe1b60177cb">buy now</a>
-            <a href="#" class="cart" data-id="6434927367f75fe1b60177cb">add to cart</a>
+            <a href="#" class="buy" data-id="6434927367f75fe1b60177cb"
+              >buy now</a
+            >
+            <a href="#" class="cart" data-id="6434927367f75fe1b60177cb"
+              >add to cart</a
+            >
           </div>
         </div>
 
@@ -370,35 +494,56 @@
             <span>( 250 )</span>
           </div>
           <p>
-            The Cactus, a symbol of resilience and adaptation, has long been a favorite choice for indoor gardeners. With their unique shapes, textures, and sizes, cacti bring a touch of the desert's beauty into your home while requiring minimal care. These striking plants are not only fascinating to look at but are also known for their ability to thrive in a variety of environments.
+            The Cactus, a symbol of resilience and adaptation, has long been a
+            favorite choice for indoor gardeners. With their unique shapes,
+            textures, and sizes, cacti bring a touch of the desert's beauty into
+            your home while requiring minimal care. These striking plants are
+            not only fascinating to look at but are also known for their ability
+            to thrive in a variety of environments.
           </p>
           <div class="price">$30.00</div>
           <div class="buttons">
-            <a href="#" class="buy" data-id="643492bd67f75fe1b60177ce">buy now</a>
-            <a href="#" class="cart" data-id="643492bd67f75fe1b60177ce">add to cart</a>
+            <a href="#" class="buy" data-id="643492bd67f75fe1b60177ce"
+              >buy now</a
+            >
+            <a href="#" class="cart" data-id="643492bd67f75fe1b60177ce"
+              >add to cart</a
+            >
           </div>
         </div>
       </div>
 
-
       <!-- About Section -->
-      
+
       <section class="about" id="maintenance">
-        
         <video id="maintenance-video" autoplay muted loop>
           <source src="/img/plantcare1.mp4" type="video/mp4" />
         </video>
         <div class="maintenance-info">
           <h2 class="about-title">Plant Care</h2>
           <ul id="plantcare">
-            <li>Water your plant regularly, but avoid overwatering. Make sure the soil is moist but not waterlogged.</li>
-            <li>Ensure that your plant is receiving the right amount of sunlight. Some plants need direct sunlight, while others prefer indirect light.</li>
-            <li>Check your plant for pests and diseases regularly. If you notice any issues, take action immediately to prevent the problem from spreading.</li>
-            <li>Prune your plant regularly to keep it healthy and promote new growth. Remove any dead or damaged leaves or stems.</li>
+            <li>
+              Water your plant regularly, but avoid overwatering. Make sure the
+              soil is moist but not waterlogged.
+            </li>
+            <li>
+              Ensure that your plant is receiving the right amount of sunlight.
+              Some plants need direct sunlight, while others prefer indirect
+              light.
+            </li>
+            <li>
+              Check your plant for pests and diseases regularly. If you notice
+              any issues, take action immediately to prevent the problem from
+              spreading.
+            </li>
+            <li>
+              Prune your plant regularly to keep it healthy and promote new
+              growth. Remove any dead or damaged leaves or stems.
+            </li>
           </ul>
         </div>
       </section>
-      
+
       <!-- Parallax Section -->
       <section class="banner">
         <div class="container-review">
@@ -410,14 +555,21 @@
           <!--review-->
           <article class="review" id="review">
             <div class="img-container-rev">
-              <img src="./person-1.jpeg" id="person-img" alt="">
+              <img src="./person-1.jpeg" id="person-img" alt="" />
             </div>
             <div class="review-content">
               <h4 id="author">John Doe</h4>
               <p id="job">Web Developer</p>
-              <p id="info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce efficitur, mauris non malesuada luctus, quam mauris maximus justo, ut dictum dolor velit vitae leo. Sed malesuada hendrerit ultricies. In hac habitasse platea dictumst. Nulla porta neque id quam euismod, id faucibus est fermentum. Fusce vitae ante vestibulum, rhoncus urna non, feugiat quam.</p>
+              <p id="info">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+                efficitur, mauris non malesuada luctus, quam mauris maximus
+                justo, ut dictum dolor velit vitae leo. Sed malesuada hendrerit
+                ultricies. In hac habitasse platea dictumst. Nulla porta neque
+                id quam euismod, id faucibus est fermentum. Fusce vitae ante
+                vestibulum, rhoncus urna non, feugiat quam.
+              </p>
             </div>
-          </article>   
+          </article>
         </div>
         <!-- <div class="button-container">
           <button class="prev-btn">
@@ -429,7 +581,7 @@
         </div> -->
       </section>
       <!-- Subscription Section -->
-     <div class="subscription">
+      <div class="subscription">
         <h2 id="monthly-sub-title">The Gift That Keeps On Giving</h2>
         <article class="sub_column1">
           <img src="./img/better.jpg" alt="" />
@@ -437,56 +589,49 @@
         </article>
         <article class="sub_column2">
           <p>
-            Welcome to our monthly plant subscription service! Each month, you'll receive a carefully curated selection of plants straight to your door, chosen for their beauty and ease of care. From lush ferns to colorful succulents, our expert team will handpick a variety of plants that will thrive in your home or office.</p>
+            Welcome to our monthly plant subscription service! Each month,
+            you'll receive a carefully curated selection of plants straight to
+            your door, chosen for their beauty and ease of care. From lush ferns
+            to colorful succulents, our expert team will handpick a variety of
+            plants that will thrive in your home or office.
+          </p>
 
-            <p>With your subscription, you'll also receive detailed care instructions and tips to ensure your plants stay healthy and vibrant. Plus, as a subscriber, you'll enjoy exclusive access to new and rare plant varieties, as well as discounts on other plant-related products in our shop.</p>
+          <p>
+            With your subscription, you'll also receive detailed care
+            instructions and tips to ensure your plants stay healthy and
+            vibrant. Plus, as a subscriber, you'll enjoy exclusive access to new
+            and rare plant varieties, as well as discounts on other
+            plant-related products in our shop.
+          </p>
 
-            <p>Whether you're a seasoned plant enthusiast or just starting out on your green journey, our subscription service is the perfect way to bring more life and joy into your space. So why wait? Sign up today and start enjoying the benefits of having beautiful, healthy plants in your home every month!</p>
+          <p>
+            Whether you're a seasoned plant enthusiast or just starting out on
+            your green journey, our subscription service is the perfect way to
+            bring more life and joy into your space. So why wait? Sign up today
+            and start enjoying the benefits of having beautiful, healthy plants
+            in your home every month!
+          </p>
         </article>
       </div>
     </div>
-      </div>
-    </div>
-  </div>
-      <!-- Main Container Ends -->
 
-      <!-- Footer Section -->
+    <!-- Main Container Ends -->
+
+    <!-- Footer Section -->
     <footer>
-    <section class="footer_banner" id="contact">
-      <div class="contact-form">
-        <form id="fcf-form-id" class="fcf-form-class" method="post" action="contact-form-process.php">
-        
-          <div class="fcf-form-group">
-              <label for="Name" class="fcf-label"></label>
-              <div class="fcf-input-group">
-                  <input type="text" id="Name" name="Name" class="fcf-form-control" required="" placeholder="name">
-              </div>
-          </div>
-          <div class="fcf-form-group">
-              <label for="Email" class="fcf-label"></label>
-              <div class="fcf-input-group">
-                  <input type="email" id="Email" name="Email" class="fcf-form-control" required="" placeholder="email">
-              </div>
-          </div>
-          <div class="fcf-form-group">
-              <label for="Message" class="fcf-label"></label>
-              <div class="fcf-input-group">
-                  <textarea id="Message" name="Message" class="fcf-form-control" rows="6" maxlength="3000" required="" placeholder="How may we help you?"></textarea>
-              </div>
-          </div>
-          <div class="fcf-form-group">
-              <button type="submit" id="fcf-button" class="fcf-btn fcf-btn-primary fcf-btn-lg fcf-btn-block">Send Message</button>
-          </div>
-      </form>
+      <div class="footer-content" id="contact">
+          <h3>Plants A Plenty</h3>
+          <p>Raj Template is a blog website where you will find great tutorials on web design and development. Here each tutorial is beautifully described step by step with the required source code.</p>
+          <ul class="socials">
+              <li><a href="#"><i class="fa-brands fa-facebook fa-fade"></i></i></a></li>
+              <li><a href="#"><i class="fa-brands fa-twitter fa-fade"></i></a></li>
+              <li><a href="#"><i class="fa-brands fa-google-plus fa-fade"></i></a></li>
+              <li><a href="#"><i class="fa-brands fa-youtube fa-fade"></i></a></li>
+          </ul>
       </div>
-      <h2 class="hidden">Footer Banner Section</h2>
-      <p class="hero_header">FOR THE LATEST NEWS &amp; UPDATES</p>
-      <div class="button">subscribe</div>
-      <div class="copyright">©2023</div>
-    </section>
   </footer>
     <!-- Copyrights Section -->
-    
+
     <script src="/review.js"></script>
   </body>
 </html>

@@ -437,6 +437,9 @@ ul li:hover a {
   min-height: 0;
   flex-grow: 0;
 }
+
+
+
 .feature-title {
   font-size: 3.8rem;
   font-family: "Sansita Swashed", cursive;
@@ -636,45 +639,103 @@ ul li:hover a {
   color: #fff;
 }
 
-/* Parallax Section */
 
 .banner {
   background-color: rgba(7, 96, 78, 1);
-  background-image: url(../images/parallax.png);
-  height: 400px;
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
+  width:50%;
+  padding: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+margin: 0 auto;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  border-radius: 12px;
+  height: auto;
 }
+/*Reviews*/
+.container-review {
+    width: 100%;
+    border-radius: 5px;
+  
+  }
+  
+  .container-review .review {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+  .container-review .review .img-container-rev {
+    padding-right: 50px;  
+    width: 35%;
+  }
+  
+  .container-review .review img {
+    border-radius: 50%;
+    height: 250px;
+    width: 250px;
+    
+  }
+  
+  .container-review .review-content {
+    margin: 20px;
+    width: 35%
+  }
+  
+  .container-review .review-content h4 {
+    font-size: 34px;
+    margin: 0 0 10px 0;
+    padding-bottom: 20px;
+    color:wheat;
+  }
+  
+  .container-review .review-content p {
+    font-size: 1.5em;
+    line-height: 1.5;
+    margin: 0;
+    color: wheat;
+  }
+  
+  .banner .button-container {
+    display: flex;
+    width: 100%;
+    justify-content:space-between;
+    margin-top: 0;
+    z-index: 2;
+  }
+  
+  .banner .prev-btn {
+    background-color: transparent;
+    font-size: 50px;
+    color: wheat;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    position: relative;
+    left: 190px;
+    bottom: 200px;
+  }
+  
+  .banner .next-btn {
+    background-color: transparent;
+    font-size: 50px;
+    color: wheat;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    position: relative;
+    right: 190px;
+    bottom: 200px;
+  }
+  
+  .container-review .prev-btn:hover,
+  .container-review .next-btn:hover {
+    transform: scale(1.2);
+  }
+  
+  
 
-.parallax {
-  color: #ffffff;
-  text-align: right;
-  padding-right: 100px;
-  padding-top: 110px;
-  letter-spacing: 2px;
-  margin-top: 0px;
-}
-
-.parallax_description {
-  color: #ffffff;
-  text-align: right;
-  padding-right: 100px;
-  width: 30%;
-  float: right;
-
-  font-weight: lighter;
-
-  line-height: 23px;
-
-  margin-top: 0px;
-
-  margin-right: 0px;
-
-  margin-bottom: 0px;
-
-  margin-left: 0px;
-}
 
 /* More info */
 

@@ -1,25 +1,25 @@
-
 //------------Nav Bar Background------------
 
-const navbar = document.querySelector('nav');
+const navbar = document.querySelector("nav");
 
-window.onscroll = function() {
+window.onscroll = function () {
   if (window.pageYOffset > 0) {
-    navbar.classList.add('scrolled');
+    navbar.classList.add("scrolled");
   } else {
-    navbar.classList.remove('scrolled');
+    navbar.classList.remove("scrolled");
   }
 };
 //------------------------------------------
 
-let cart = document.getElementById('cart')
-let add = document.getElementById('cartbtn')
-let remove = document.getElementById('remove')
+let cart = document.getElementById("cart");
+let add = document.getElementById("cartbtn");
+let remove = document.getElementById("remove");
 
 let cartButtons = document.querySelectorAll(".cart");
+let buyNowButton = document.querySelectorAll(".buy");
 
 // Sends a post request for the item to be added to the user's cart
-// Once you get a good response fetch the cart and grab the items and update the SideCart with the item. 
+// Once you get a good response fetch the cart and grab the items and update the SideCart with the item.
 async function addToCart(plantID) {
   try {
     const response = await fetch(`/cart/${plantID}`, {
@@ -30,12 +30,13 @@ async function addToCart(plantID) {
     if (response.ok) {
       console.log("Plant added to cart");
 
-/*       const cartResponse = await fetch('/cart')
+      /*       const cartResponse = await fetch('/cart')
       const cartItems = await cartResponse.json()
 
       updateSideCart(cartItems); */
 
       closebox();
+      location.reload();
     } else {
       console.error("Failed to add product to cart");
     }
@@ -43,6 +44,7 @@ async function addToCart(plantID) {
     console.error(error.message);
   }
 }
+
 // For the trash-can button have to link it
 async function removeFromCart(plantID) {
   try {
@@ -53,6 +55,7 @@ async function removeFromCart(plantID) {
 
     if (response.ok) {
       console.log("Plant removed from cart");
+      location.reload();
     } else {
       console.error("Failed to remove product to cart");
     }
@@ -66,6 +69,49 @@ cartButtons.forEach((button) => {
     e.preventDefault();
     let plantId = button.getAttribute("data-id");
     addToCart(plantId);
+  });
+});
+
+async function buyNow(plantID) {
+  try {
+    const response = await fetch(`/cart/${plantID}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+    });
+
+    if (response.ok) {
+      console.log("Plant added to cart");
+      closebox();
+    } else {
+      console.error("Failed to add product to cart");
+    }
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+buyNowButton.forEach((button) => {
+  button.addEventListener("click", async (e) => {
+    e.preventDefault();
+    let plantID = button.getAttribute("data-id");
+    await buyNow(plantID);
+
+    try {
+      const response = await fetch("/create-checkout-session", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+      });
+
+      if (response.ok) {
+        const url = await response.json();
+        window.location.href = url.url;
+      } else {
+        console.error("Failed to create checkout session");
+      }
+    } catch (error) {
+      console.error(error.message);
+    }
+    console.log("Checkout");
   });
 });
 
@@ -146,6 +192,7 @@ async function incrementItem(plantID) {
 
     if (response.ok) {
       console.log("Item quantity incremented");
+      location.reload();
     } else {
       console.error("Failed to increment item quantity");
     }
@@ -164,6 +211,7 @@ async function decrementItem(plantID) {
 
     if (response.ok) {
       console.log("Item quantity decremented");
+      location.reload();
     } else {
       console.error("Failed to decrement item quantity");
     }
@@ -179,6 +227,22 @@ previewBox.forEach((close) => {
   };
 });
 
-document.getElementById("checkout").addEventListener("click", () => {
+document.getElementById("checkout").addEventListener("click", async () => {
+  try {
+    const response = await fetch("/create-checkout-session", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+    });
+
+    if(response.ok) {
+      const url = await response.json()
+      window.location.href = url.url;
+    }
+    else{
+      console.error('Failed to create checkout session')
+    }
+  } catch (error) {
+    console.error(error.message);
+  }
   console.log("Checkout");
 });

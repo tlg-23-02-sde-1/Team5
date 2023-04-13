@@ -1,6 +1,7 @@
 const expressHandler = require("express-async-handler");
 const plantModel = require("../db/models/plantModel");
 const userModel = require("../DB/models/userModel");
+const stripe = require('stripe')(process.env.STRIPEKEY);
 
 // checks to see if the user exists in out DB when they are logged in.If not add them to the DB.
 const verifyUserInDb = expressHandler(async (req,res,next) => {
@@ -98,6 +99,7 @@ const deletePlant = expressHandler(async (req, res) => {
 });
 
 const getOnePlant = expressHandler(async (req, res) => {
+  console.log('req.params.id:', req.params.id)
   const plants = await plantModel.findById(req.params.id);
   if (!plants) {
     res.status(500).json({ message: `There are no plants with the id: ${req.params.id}` });
@@ -172,6 +174,7 @@ const decrementItemOnCart = expressHandler(async(req,res) => {
     cartItem.quantity--;
   }
   await user.save()
+  res.status(200).json({ message: "Item quantity updated" });
 })
 
 const incrementItemOnCart = expressHandler(async(req,res) => {
@@ -189,6 +192,63 @@ const incrementItemOnCart = expressHandler(async(req,res) => {
     cartItem.quantity++;
   }
   await user.save()
+  res.status(200).json({ message: "Item quantity updated" });
+})
+
+// TODO WORK ON THIS REQUEST
+const checkout = expressHandler(async(req,res) => {
+  const user = await userModel.findOne({_id: req.oidc.user.sub}).populate("cart.plant")
+  if(!user){
+    res.status(404).json({message : 'User not found'})
+  }
+  
+  const line_items = user.cart.map((item) => ({
+    price_data: {
+      currency: "usd",
+      product_data: {
+        name: item.plant.name,
+      },
+      unit_amount: item.plant.price * 100,
+    },
+    quantity: item.quantity,
+  }));
+
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      mode: 'payment',
+      line_items,
+      shipping_address_collection: {
+        allowed_countries: ['US']
+      },
+      shipping_options: [
+        {
+          shipping_rate_data: {
+            type: 'fixed_amount',
+            fixed_amount: {amount: 0, currency: 'usd'},
+            display_name: 'Free shipping',
+            delivery_estimate: {
+              minimum: {unit: 'business_day', value: 3},
+              maximum: {unit: 'business_day', value: 5},
+            },
+          },
+        },
+        {
+          shipping_rate_data: {
+            type: 'fixed_amount',
+            fixed_amount: {amount: 1500, currency: 'usd'},
+            display_name: 'Next day air',
+            delivery_estimate: {
+              minimum: {unit: 'business_day', value: 1},
+              maximum: {unit: 'business_day', value: 1},
+            },
+          },
+        },
+      ],
+      success_url:`${process.env.BASEURL}/success`,
+      cancel_url:`${process.env.BASEURL}/cancel`
+    })
+
+    res.status(200).json({url: session.url})
 })
 
 //TODO Implement API Endpoints for orders (get (read), post (create), update (put))
@@ -206,4 +266,5 @@ module.exports = {
   verifyUserInDb,
   decrementItemOnCart,
   incrementItemOnCart,
+  checkout,
 };

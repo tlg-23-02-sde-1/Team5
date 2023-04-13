@@ -12,6 +12,7 @@ const {
   verifyUserInDb,
   incrementItemOnCart,
   decrementItemOnCart,
+  checkout,
 } = require("../Controller/controller");
 
 // using Router instead of express()
@@ -29,6 +30,8 @@ Router.route("/cart/:id/decrement").patch(decrementItemOnCart);
 
 Router.route("/plants").get(getAllPlants);
 
-Router.route("/:id").put(updatePlant).delete(deletePlant).get(getOnePlant);
+Router.route("/plants/:id").put(updatePlant).delete(deletePlant).get(getOnePlant);
+
+Router.route('/create-checkout-session').post(verifyUserInDb , checkout)
 
 module.exports = { Router };

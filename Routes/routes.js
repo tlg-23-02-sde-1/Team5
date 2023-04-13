@@ -1,4 +1,5 @@
 const express = require("express");
+const { requiresAuth } = require("express-openid-connect");
 const {
   getPage,
   postPlants,
@@ -18,7 +19,7 @@ const {
 // using Router instead of express()
 const Router = express.Router();
 
-Router.route("/").get(verifyUserInDb, getPage).post(postPlants);
+Router.route("/").get(requiresAuth(), verifyUserInDb, getPage).post(postPlants);
 
 Router.route("/cart").get(getCart);
 

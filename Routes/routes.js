@@ -26,7 +26,7 @@ Router.route("/cart").get(getCart);
 
 Router.route("/cart/:id").delete(removeItemFromCart).post(addItemToCart);
 
-Router.route("/cart/:id/increment").put(incrementItemOnCart);
+Router.route("/cart/:id/increment").patch(incrementItemOnCart);
 
 Router.route("/cart/:id/decrement").patch(decrementItemOnCart);
 

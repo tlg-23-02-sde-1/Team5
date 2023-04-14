@@ -874,6 +874,7 @@ ul li:hover a {
 
 footer{
   background: #111;
+  border: 5px solid wheat;
   height: auto;
   width: 100vw;
   padding-top: 40px;
@@ -893,10 +894,10 @@ footer{
   line-height: 3rem;
 }
 .footer-content p{
-  max-width: 500px;
+  max-width: 720px;
   margin: 10px auto;
   line-height: 28px;
-  font-size: 14px;
+  font-size: 18px;
   color: #cacdd2;
 }
 .socials{

@@ -33,8 +33,7 @@
         <p class="tagline"></p>
       </div>
     </section>
-    <!-- Main Container -->
-    <div class="wrapper">
+
       <!-- Side-Cart -->
       <div id="cart" class="sidecart">
         <div class="cart-header">
@@ -43,7 +42,7 @@
           <span></span>
         </div>
         <div class="cart-content">
-          <% if (cart && cart.length > 0) { %> <% cart.forEach(item => { %>
+          <% if (cart && cart.length >= 0) { %> <% cart.forEach(item => { %>
           <div class="products">
             <img src="<%= item.plant.image %>" alt="<%= item.plant.name %>" />
             <div class="details">
@@ -108,7 +107,8 @@
         <h2>Your cart is empty</h2>
         <% } %>
       </div>
-
+    <!-- Main Container -->
+    <div class="wrapper">
       <!-- Navigation -->
       <header>
         <nav>

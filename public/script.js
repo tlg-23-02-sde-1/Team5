@@ -14,11 +14,9 @@ window.onscroll = function () {
 let cart = document.getElementById("cart");
 let add = document.getElementById("cartbtn");
 let remove = document.getElementById("remove");
-
 let cartButtons = document.querySelectorAll(".cart");
 let buyNowButton = document.querySelectorAll(".buy");
 let removeButton = document.querySelector('.remove-item');
-
 
 
 // Sends a post request for the item to be added to the user's cart
@@ -32,12 +30,6 @@ async function addToCart(plantID) {
 
     if (response.ok) {
       console.log("Plant added to cart");
-
-      /*       const cartResponse = await fetch('/cart')
-      const cartItems = await cartResponse.json()
-
-      updateSideCart(cartItems); */
-
       closebox();
       location.reload();
     } else {
@@ -74,14 +66,6 @@ cartButtons.forEach((button) => {
     addToCart(plantId);
   });
 });
-
-// removeButtons.forEach((button) => {
-//   button.addEventListener("click", (e) => {
-//     e.preventDefault();
-//     let plantId = button.getAttribute("data-id");
-//     removeFromCart(plantId);
-//   });
-// });
 
 if (removeButton) {
   removeButton.addEventListener("click", (e) => {
@@ -154,27 +138,6 @@ function stepDown(button) {
   decrementItem(plantId); // new
 }
 
-/* function updateSideCart(cartItems) {
-  // Clear the existing sidecart content
-  const sidecart = document.querySelector(".sidecart .products");
-  sidecart.innerHTML = "";
-
-  // Render the updated cart items
-  cartItems.forEach((item) => {
-    const cartItemHtml = `
-      <div class="product">
-        <img src="${item.plant.image}" alt="${item.plant.name}" />
-        <div class="product-info">
-          <h4>${item.plant.name}</h4>
-          <p>Price: $ ${item.plant.price}</p>
-          <p>Quantity: ${item.quantity}</p>
-        </div>
-      </div>
-    `;
-    sidecart.innerHTML += cartItemHtml;
-  });
-} */
-
 //Landing page product modals
 let previewContainer = document.querySelector(".products-preview");
 let previewBox = previewContainer.querySelectorAll(".preview");
@@ -205,7 +168,7 @@ function closebox() {
 async function incrementItem(plantID) {
   try {
     const response = await fetch(`/cart/${plantID}/increment`, {
-      method: "PUT",
+      method: "PATCH",
       headers: { "Content-Type": "application/json" },
     });
 

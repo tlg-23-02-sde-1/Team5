@@ -1,6 +1,9 @@
-const intervalTime = 10000; // 10 seconds
+
+//Sets up a rotating review card-------------------------
+const intervalTime = 8000; // 10 seconds
 let currentReviewIndex = 0;
 
+//Array of objects
 const reviews = [
   {
     id: 1,
@@ -27,19 +30,24 @@ const reviews = [
     text: "Plants A Plenty has a great selection of plants. Prices are reasonable and they often have good deals on larger plants. I've purchased several fruit trees from them and have been very happy with the quality.",
   },
 ];
-//access dynamic elements
+
+
+//access dynamic elements in a div
 const img = document.getElementById("person-img");
 const author = document.getElementById("author");
 const job = document.getElementById("job");
 const info = document.getElementById("info");
 
-//to pause the review on hover
-const hoverBox = document.querySelector(".banner");
-let isPaused = false;
-//Hover pause
-hoverBox.addEventListener("mouseover", (event) => {
-    event.isPaused = true;
-});
+// //to pause the review on hover (not implemented yet)
+// // Hover pause
+// hoverBox.addEventListener("mouseover", () => {
+//   isPaused = true;
+// });
+
+// // Resume autoplay on mouseout
+// hoverBox.addEventListener("mouseout", () => {
+//   isPaused = false;
+// });
 
 // const prevBtn = document.querySelector(".prev-btn");
 // const nextBtn = document.querySelector(".next-btn");

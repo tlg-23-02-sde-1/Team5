@@ -24,7 +24,7 @@ const verifyUserInDb = expressHandler(async (req,res,next) => {
 const getPage = expressHandler(async (req,res) => {
   if(req.oidc.isAuthenticated()) {
     const user = await userModel.findOne({_id: req.oidc.user.sub}).populate("cart.plant")
-    if(user && user.cart.length > 0) {
+    if(user && user.cart.length >= 0) {
       res.render('index.ejs', {isAuthenticated: req.oidc.isAuthenticated(), cart: user.cart})
     }
     else{

@@ -1,5 +1,5 @@
 const expressHandler = require("express-async-handler");
-const plantModel = require("../db/models/plantModel");
+const plantModel = require("../DB/models/plantModel");
 const userModel = require("../DB/models/userModel");
 const stripe = require('stripe')(process.env.STRIPEKEY);
 

@@ -32,10 +32,13 @@ Router.route("/cart/:id/decrement").patch(decrementItemOnCart);
 
 Router.route("/plants").get(getAllPlants);
 
-Router.route("/plants/:id").put(updatePlant).delete(deletePlant).get(getOnePlant);
+Router.route("/plants/:id")
+  .put(updatePlant)
+  .delete(deletePlant)
+  .get(getOnePlant);
 
-Router.route('/create-checkout-session').post(verifyUserInDb , checkout)
+Router.route("/create-checkout-session").post(verifyUserInDb, checkout);
 
-Router.route('/order/success').get(verifyUserInDb, successOrder)
+Router.route("/order/success").get(verifyUserInDb, successOrder);
 
 module.exports = { Router };

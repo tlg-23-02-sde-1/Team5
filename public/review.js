@@ -1,4 +1,3 @@
-
 //Sets up a rotating review card-------------------------
 const intervalTime = 8000; // 10 seconds
 let currentReviewIndex = 0;
@@ -30,7 +29,6 @@ const reviews = [
     text: "Plants A Plenty has a great selection of plants. Prices are reasonable and they often have good deals on larger plants. I've purchased several fruit trees from them and have been very happy with the quality.",
   },
 ];
-
 
 //access dynamic elements in a div
 const img = document.getElementById("person-img");
@@ -75,23 +73,12 @@ function showPerson(person) {
 function showNextReview() {
   currentReviewIndex = (currentReviewIndex + 1) % reviews.length;
   const review = reviews[currentReviewIndex];
-   author.innerText = review.name;
+  author.innerText = review.name;
   info.innerText = review.text;
-   img.src = review.img;
+  img.src = review.img;
 }
 
 let intervalId = setInterval(showNextReview, intervalTime);
-
-
-
-
-
-
-
-
-
-
-
 
 //set up event listener with button
 

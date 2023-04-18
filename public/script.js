@@ -16,8 +16,7 @@ let add = document.getElementById("cartbtn");
 let remove = document.getElementById("remove");
 let cartButtons = document.querySelectorAll(".cart");
 let buyNowButton = document.querySelectorAll(".buy");
-let removeButton = document.querySelector('.remove-item');
-
+let removeButton = document.querySelector(".remove-item");
 
 // Sends a post request for the item to be added to the user's cart
 // Once you get a good response fetch the cart and grab the items and update the SideCart with the item.
@@ -216,12 +215,11 @@ document.getElementById("checkout").addEventListener("click", async () => {
       headers: { "Content-Type": "application/json" },
     });
 
-    if(response.ok) {
-      const url = await response.json()
+    if (response.ok) {
+      const url = await response.json();
       window.location.href = url.url;
-    }
-    else{
-      console.error('Failed to create checkout session')
+    } else {
+      console.error("Failed to create checkout session");
     }
   } catch (error) {
     console.error(error.message);

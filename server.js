@@ -3,7 +3,7 @@ const app = express();
 require("dotenv").config();
 const { connect } = require("./DB/config");
 const { Router } = require("./Routes/routes");
-const { auth } = require('express-openid-connect');
+const { auth } = require("express-openid-connect");
 
 const config = {
   authRequired: false,
@@ -11,7 +11,7 @@ const config = {
   secret: process.env.SECRET,
   baseURL: process.env.BASEURL,
   clientID: process.env.CLIENTID,
-  issuerBaseURL: process.env.ISSUERBASEURL
+  issuerBaseURL: process.env.ISSUERBASEURL,
 };
 
 connect();

@@ -42,7 +42,7 @@
           <span></span>
         </div>
         <div class="cart-content">
-          <% if (cart && cart.length >= 0) { %> <% cart.forEach(item => { %>
+          <% if (cart && cart.length > 0) { %> <% cart.forEach(item => { %>
           <div class="products">
             <img src="<%= item.plant.image %>" alt="<%= item.plant.name %>" />
             <div class="details">
@@ -103,8 +103,11 @@
           <h2>Cart Subtotal: $<%= subtotal %></h2>
         </div>
         <button id="checkout">Checkout</button>
-        <% } else { %>
-        <h2>Your cart is empty</h2>
+        <% } else if (cart && cart.length === 0) { %>
+          <div class ="cart-empty">
+            <h2>Your cart is empty</h2>
+          </div>
+        </div>
         <% } %>
       </div>
     <!-- Main Container -->

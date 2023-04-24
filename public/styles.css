@@ -298,6 +298,7 @@ nav {
   left: 0;
   background-color: linear-gradient(to bottom, #000, #0003 70%, #0000);
   transition: background-color 0.5s;
+  z-index: 1;
 }
 nav.scrolled {
   background-color: #0a0a0a;

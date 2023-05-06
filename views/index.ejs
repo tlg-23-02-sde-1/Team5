@@ -30,7 +30,6 @@
         <h2 class="hero_header">
           "Bringing the outdoors in, one plant at a time."
         </h2>
-        <p class="tagline"></p>
       </div>
     </section>
 
@@ -120,18 +119,18 @@
               ><h2 id="logonav">Plants A Plenty</h2></a
             >
           </div>
-          <ul>
-            <li><a href="#hero">HOME</a></li>
-            <li><a href="#trending">SHOP</a></li>
-            <li><a href="#maintenance">CARE</a></li>
-            <li><a href="#review">TESTIMONIAL</a></li>
-            <li><a href="#monthly-sub">SUBSCRIPTION</a></li>
-            <li><a href="#contact">CONTACT</a></li>
+          <ul class="links">
+            <li id="resp"><a href="#hero">HOME</a></li>
+            <li id="resp"><a href="#trending">SHOP</a></li>
+            <li id="resp"><a href="#maintenance">CARE</a></li>
+            <li id="resp"><a href="#review">TESTIMONIAL</a></li>
+            <li id="resp"><a href="#monthly-sub">SUBSCRIPTION</a></li>
+            <li id="resp"><a href="#contact">CONTACT</a></li>
 
             <% if(!isAuthenticated) { %>
-            <li><a href="/login/" id="logsign">LOGIN/SIGNUP</a></li>
+            <li id="resp"><a href="/login/" id="logsign">LOGIN/SIGNUP</a></li>
             <% } else { %>
-            <li><a href="/logout/" id="logsign">LOGOUT</a></li>
+            <li id="resp"><a href="/logout/" id="logsign">LOGOUT</a></li>
             <% } %>
             <li id="cartbtn">
               <button id="cartbtn">
@@ -150,6 +149,23 @@
               </button>
             </li>
           </ul>
+          <div class="toggle-btn">
+            <i class="fa-solid fa-bars" style="color: #f5deb3;"></i>
+          </div>
+            <ul class="dropdown_menu">
+              <li><a href="#hero">HOME</a></li>
+              <li><a href="#trending">SHOP</a></li>
+              <li><a href="#maintenance">CARE</a></li>
+              <li><a href="#review">TESTIMONIAL</a></li>
+              <li><a href="#monthly-sub">SUBSCRIPTION</a></li>
+              <li><a href="#contact">CONTACT</a></li>
+        
+              <% if(!isAuthenticated) { %>
+                <li><a href="/login/" id="logsign">LOGIN/SIGNUP</a></li>
+              <% } else { %>
+                <li><a href="/logout/" id="logsign">LOGOUT</a></li>
+              <% } %>
+            </ul>
         </nav>
       </header>
       <!-- Featured Section -->

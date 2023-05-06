@@ -9,6 +9,38 @@ window.onscroll = function () {
     navbar.classList.remove("scrolled");
   }
 };
+
+
+
+//----------Toggle responsive--------------
+const toggleBtn = document.querySelector('.toggle-btn');
+console.log(toggleBtn); // Add this line to check if toggleBtn is null
+const toggleBtnIcon = document.querySelector('.toggle-btn i');
+console.log(toggleBtnIcon); // Add this line to check if toggleBtnIcon is null
+const dropDownMenu = document.querySelector('.dropdown_menu');
+console.log(dropDownMenu); // Add this line to check if dropDownMenu is null
+
+toggleBtn.onclick = function () {
+  dropDownMenu.classList.toggle('open');
+  const isOpen = dropDownMenu.classList.contains('open');
+
+  toggleBtnIcon.classList = isOpen
+  ? 'fa-solid fa-xmark'
+  : 'fa-solid fa-bars';
+}
+
+function closeDropDownMenu() {
+  dropDownMenu.classList.remove('open');
+}
+
+
+window.addEventListener('resize', function () {
+  if (dropDownMenu.classList.contains('open') && window.innerWidth > 768) {
+    closeDropDownMenu();
+  }})
+
+
+
 //------------------------------------------
 
 let cart = document.getElementById("cart");

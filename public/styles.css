@@ -109,6 +109,21 @@ p {
   background-color: transparent;
 }
 
+.cart-notification::before {
+  position: absolute;
+  content: attr(data-product-count);
+  top: 1rem;
+  right: 8.5rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  color: black;
+  background-color: rgb(240, 215, 176);
+  font-family: sans-serif;
+  border-radius: 50%;
+  text-align:center;
+  line-height: 1.75rem;
+}
+
 #cartbtn button {
   border: none;
   cursor: pointer;

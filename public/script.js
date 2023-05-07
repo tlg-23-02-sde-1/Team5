@@ -50,6 +50,103 @@ let cartButtons = document.querySelectorAll(".cart");
 let buyNowButton = document.querySelectorAll(".buy");
 let removeButton = document.querySelector(".remove-item");
 
+async function fetchPlantDetails(plantID) {
+  try {
+    const response = await fetch(`/plants/${plantID}`, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    });
+
+    if (response.ok) {
+      const plantData = await response.json();
+      return plantData;
+    } else {
+      console.error("Failed to fetch plant details");
+      return null;
+    }
+  } catch (error) {
+    console.error(error.message);
+    return null;
+  }
+}
+
+async function fetchCart() {
+  try {
+    const response = await fetch("/cart", {
+      headers: { "Content-Type": "application/json" },
+    });
+
+    if (response.ok) {
+      const cartData = await response.json();
+
+      // Fetch plant details for each cart item
+      const plantDetailsPromises = cartData.map(async (item) => {
+        const plantResponse = await fetch(`/plants/${item.plant}`);
+        const plant = await plantResponse.json();
+        return {
+          ...item,
+          plant,
+        };
+      });
+
+      // Wait for all plant details to be fetched
+      const cartDataWithDetails = await Promise.all(plantDetailsPromises);
+      updateCartUI(cartDataWithDetails);
+    } else {
+      console.error("Failed to fetch cart data");
+    }
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+function updateCartUI(cartData) {
+  const cartContentElement = document.querySelector(".cart-content");
+  cartContentElement.innerHTML = "";
+
+  let totalQuantity = 0;
+  let subtotal = 0;
+
+  cartData.forEach((item) => {
+    const productDiv = document.createElement("div");
+    productDiv.classList.add("products");
+
+    productDiv.innerHTML = `
+      <img src="${item.plant.image}" alt="${item.plant.name}" />
+      <div class="details">
+        <h2>${item.plant.name}</h2>
+        <h4>Price: $${item.plant.price}</h4>
+        <div class="quantity-and-button">
+          <button class="btn btn-link px-2" data-id="${item.plant._id}" onclick="stepDown(this)">
+            <i class="fas fa-minus"></i>
+          </button>
+          <h4>Qty:</h4>
+          <input type="number" value="${item.quantity}" min="1" name="quantity" readonly />
+          <button class="btn btn-link px-2" data-id="${item.plant._id}" onclick="stepUp(this)">
+            <i class="fas fa-plus"></i>
+          </button>
+          <button class="remove-item" onclick="removeFromCart('${item.plant._id}')">
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+        <h4>Total: $${item.plant.price * item.quantity}</h4>
+      </div>
+    `;
+    cartContentElement.appendChild(productDiv);
+
+    totalQuantity += item.quantity;
+    subtotal += item.plant.price * item.quantity;
+  });
+
+  // update the subtotal
+  const subtotalElement = document.querySelector(".subtotal");
+  subtotalElement.innerHTML = `<h2>Cart Subtotal: $${subtotal.toFixed(2)}</h2>`;
+
+  // update the cart-notification total displayed
+  const carttotalElement = document.querySelector('.cart-notification')
+  carttotalElement.setAttribute('data-product-count', totalQuantity);
+}
+
 // Sends a post request for the item to be added to the user's cart
 // Once you get a good response fetch the cart and grab the items and update the SideCart with the item.
 async function addToCart(plantID) {
@@ -62,7 +159,7 @@ async function addToCart(plantID) {
     if (response.ok) {
       console.log("Plant added to cart");
       closebox();
-      location.reload();
+      await fetchCart();
     } else {
       console.error("Failed to add product to cart");
     }
@@ -81,7 +178,7 @@ async function removeFromCart(plantID) {
 
     if (response.ok) {
       console.log("Plant removed from cart");
-      location.reload();
+      await fetchCart();
     } else {
       console.error("Failed to remove product to cart");
     }
@@ -205,7 +302,7 @@ async function incrementItem(plantID) {
 
     if (response.ok) {
       console.log("Item quantity incremented");
-      location.reload();
+      await fetchCart();
     } else {
       console.error("Failed to increment item quantity");
     }
@@ -224,7 +321,7 @@ async function decrementItem(plantID) {
 
     if (response.ok) {
       console.log("Item quantity decremented");
-      location.reload();
+      await fetchCart();
     } else {
       console.error("Failed to decrement item quantity");
     }
@@ -232,6 +329,10 @@ async function decrementItem(plantID) {
     console.error(error.message);
   }
 }
+
+socket.on("cartUpdated", (cartData) => {
+  updateCartUI(cartData);
+});
 
 previewBox.forEach((close) => {
   close.querySelector(".fa-times").onclick = () => {

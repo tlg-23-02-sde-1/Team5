@@ -161,6 +161,8 @@ const addItemToCart = expressHandler(async (req, res) => {
   }
   await user.save();
 
+  req.io.emit("cartUpdated", user.cart);
+
   res.status(200).json({ message: "Item added to cart of", user });
 });
 
@@ -181,6 +183,8 @@ const removeItemFromCart = expressHandler(async (req, res) => {
     (item) => item.plant.toString() !== req.params.id
   );
   await user.save();
+
+  req.io.emit("cartUpdated", user.cart);
 
   res.status(200).json({ message: "Item removed from cart of", user });
 });
@@ -204,6 +208,9 @@ const decrementItemOnCart = expressHandler(async (req, res) => {
     cartItem.quantity--;
   }
   await user.save();
+
+  req.io.emit("cartUpdated", user.cart);
+
   res.status(200).json({ message: "Item quantity updated" });
 });
 
@@ -226,6 +233,9 @@ const incrementItemOnCart = expressHandler(async (req, res) => {
     cartItem.quantity++;
   }
   await user.save();
+
+  req.io.emit("cartUpdated", user.cart);
+
   res.status(200).json({ message: "Item quantity updated" });
 });
 

@@ -292,6 +292,13 @@ function closebox() {
   });
 }
 
+previewBox.forEach((close) => {
+  close.querySelector(".fa-times").onclick = () => {
+    close.classList.remove("active");
+    previewContainer.style.display = "none";
+  };
+});
+
 //increment the qty
 async function incrementItem(plantID) {
   try {
@@ -334,12 +341,7 @@ socket.on("cartUpdated", (cartData) => {
   updateCartUI(cartData);
 });
 
-previewBox.forEach((close) => {
-  close.querySelector(".fa-times").onclick = () => {
-    close.classList.remove("active");
-    previewContainer.style.display = "none";
-  };
-});
+
 
 document.getElementById("checkout").addEventListener("click", async () => {
   try {

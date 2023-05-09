@@ -579,6 +579,8 @@ nav .toggle-btn {
   color: #444;
   text-align: center;
 }
+
+
 .products-preview {
   position: fixed;
   top: 0;
@@ -683,6 +685,8 @@ nav .toggle-btn {
 .products-preview .preview .buttons a.buy:hover {
   background: #444;
   color: #fff;
+  z-index: 5;
+
 }
 
 .banner {

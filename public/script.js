@@ -138,9 +138,22 @@ function updateCartUI(cartData) {
     subtotal += item.plant.price * item.quantity;
   });
 
-  // update the subtotal
   const subtotalElement = document.querySelector(".subtotal");
-  subtotalElement.innerHTML = `<h2>Cart Subtotal: $${subtotal.toFixed(2)}</h2>`;
+  const checkout = document.querySelector('#checkout');
+
+  if (cartData.length === 0) {
+    const emptyCartMessage = document.createElement("div");
+    emptyCartMessage.classList.add("cart-empty");
+    emptyCartMessage.innerHTML = "<h2>Your cart is empty</h2>";
+    cartContentElement.appendChild(emptyCartMessage);
+    subtotalElement.style.display = "none";
+    checkout.style.display = "none";
+  } else {
+    // update the subtotal
+    subtotalElement.innerHTML = `<h2>Cart Subtotal: $${subtotal.toFixed(2)}</h2>`;
+    subtotalElement.style.display = "block";
+    checkout.style.display = "block";
+  }
 
   // update the cart-notification total displayed
   const carttotalElement = document.querySelector('.cart-notification')

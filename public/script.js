@@ -149,14 +149,13 @@ function updateCartUI(cartData) {
     subtotalElement.style.display = "none";
     checkout.style.display = "none";
   } else {
-    // update the subtotal
-    subtotalElement.innerHTML = `<h2>Cart Subtotal: $${subtotal.toFixed(2)}</h2>`;
     subtotalElement.style.display = "block";
+    subtotalElement.innerHTML = `<h2>Cart Subtotal: $${subtotal.toFixed(2)}</h2>`;
     checkout.style.display = "block";
   }
 
   // update the cart-notification total displayed
-  const carttotalElement = document.querySelector('.cart-notification')
+  const carttotalElement = document.querySelector('.cart-notification');
   carttotalElement.setAttribute('data-product-count', totalQuantity);
 }
 
@@ -260,7 +259,10 @@ buyNowButton.forEach((button) => {
 });
 
 // To open the cart on click
-add.addEventListener("click", () => cart.classList.add("active"));
+add.addEventListener("click", async () => {
+  await fetchCart(); // Fetch the latest cart data before opening the cart
+  cart.classList.add("active");
+});
 
 // To close the cart on click
 remove.addEventListener("click", () => cart.classList.remove("active"));
@@ -350,12 +352,6 @@ async function decrementItem(plantID) {
   }
 }
 
-socket.on("cartUpdated", (cartData) => {
-  updateCartUI(cartData);
-});
-
-
-
 document.getElementById("checkout").addEventListener("click", async () => {
   try {
     const response = await fetch("/create-checkout-session", {
@@ -373,4 +369,8 @@ document.getElementById("checkout").addEventListener("click", async () => {
     console.error(error.message);
   }
   console.log("Checkout");
+});
+
+socket.on("cartUpdated", (cartData) => {
+  updateCartUI(cartData);
 });

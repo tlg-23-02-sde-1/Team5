@@ -408,7 +408,7 @@ nav .toggle-btn {
 
 /* About Section */
 
-.text_column {
+/* .text_column {
   width: 29%;
   text-align: justify;
   font-weight: lighter;
@@ -417,36 +417,37 @@ nav .toggle-btn {
   padding-left: 20px;
   padding-right: 20px;
   color: #a3a3a3;
-}
+} */
 
 .about {
   width: 100%;
-  min-height: auto;
-  padding-left: 25px;
-  padding-right: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
   margin-top: 200px;
   margin-bottom: 200px;
-  flex-wrap: wrap;
-  flex-grow: 1;
 }
 
 .about .maintenance-info {
-  width: 50%;
-  min-height: 0;
-  flex-grow: 1;
+  grid-area: 1 / 1 / 2 / 2;
+  
 }
 
-.about #maintenance-video {
-  width: 850px;
-  max-height: auto;
-  border: 5px solid wheat;
-  border-radius: 20px;
-  margin-left: 200px;
+.about .maintenance-video {
+  grid-area: 1 / 2 / 2 / 3;
+  display: flex;
+    justify-content: center;
+    align-items: center;
 }
+.about .maintenance-video video {
+  width: 75%;
+  border: 10px solid wheat;
+}
+
 #plantcare li {
+  list-style: none;
   line-height: 45px;
   margin: 0 auto;
   width: 60%;
@@ -1062,7 +1063,76 @@ margin-bottom: 20px;
   .hero #hero-video {
     object-fit: cover;
   }
+
+  .subscription {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sub_column1 {
+    order: 2;
+    margin-bottom: 20px;
+  }
+
+  .sub_column1 img {
+    width: 100%;
+    height: auto;
+  }
+
+  .sub_column2 {
+    order: 1;
+  }
+
+  .container-review .review {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
   
+  .container-review .review .img-container-rev {
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+  }
+  
+  .container-review .review img {
+    border-radius: 50%;
+    height: 250px;
+    width: 250px;
+  }
+
+  .review .review-content {
+    width: 100%;
+    padding: 30px;
+  }
+
+  .review .review-content #author {
+    text-align: center;
+  }
+
+  .about {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #maintenance-video {
+    order: 2;
+    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .maintenance-info {
+    order: 1;
+  }
+  
+  /* .feature .container .about .subscription {
+    display: grid;
+    grid-template-columns: 1fr;
+  } */
 
 
     /* .hero .title .hero_header {
